@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Replay · Money Moves Masterclass</title>
+<meta name="description" content="Watch the replay, then apply below.">
+<meta name="robots" content="noindex">
+  <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
+<script>try{if("scrollRestoration" in history)history.scrollRestoration="manual"}catch(e){}addEventListener("load",function(){if(!location.hash)scrollTo(0,0)});</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/funnel.css?v=1">
+<style>
+  @font-face{font-family:"SFD";src:url(../assets/fonts/sfpro-bold.woff2) format("woff2");font-weight:700;font-display:swap}
+  @font-face{font-family:"Inter";src:url(../assets/fonts/inter-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
+  :root{
+    --bg:#f8f5ea;--surface:#ffffff;--surface-2:#f8f5ea;
+    --line:rgba(14,13,13,.10);--line-soft:rgba(14,13,13,.06);
+    --text:#0e0d0d;--text-2:#4a4240;--text-3:#7a6e69;
+    --accent:#4f5d23;--accent-2:#a3c93a;--accent-ink:#ffffff;
+    --accent-soft:rgba(79,93,35,.10);--accent-glow:rgba(79,93,35,.28);
+    --radius:22px;--maxw:1080px;
+    --font:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  h1,h2,h3{font-family:"Playfair Display",Georgia,serif}:root{--display:"Playfair Display",Georgia,serif;--sans:Poppins,system-ui,sans-serif}body{font-family:Poppins,system-ui,sans-serif}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);
+    -webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .narrow{max-width:900px}
+  h1,h2,h3{margin:0;letter-spacing:-.02em}
+  h1{font-size:clamp(32px,5vw,52px);line-height:1.07;font-weight:800}
+  h2{font-size:clamp(26px,4vw,40px);line-height:1.1;font-weight:800}
+  .eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--accent);margin:0 0 16px}
+  .lead{font-size:clamp(17px,2vw,20px);color:var(--text-2);margin:18px 0 0}
+  .sec-head{text-align:center;max-width:720px;margin:0 auto 60px}
+  .section{padding:88px 0;position:relative}
+  .tint{background:radial-gradient(80% 120% at 50% 0%, rgba(255,255,255,.03), transparent 60%)}
+
+  /* topbar (brand + pill = 2 elements → bar allowed) */
+  .topbar{border-bottom:1px solid var(--line);background:rgba(251,247,243,.86);backdrop-filter:blur(8px)}
+  .topbar .row{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:18px}
+  .brand .mark{width:26px;height:26px;color:var(--accent)}
+  .pill{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--accent);
+    background:var(--accent-soft);border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);
+    border-radius:999px;padding:7px 15px}
+  .pill .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);
+    box-shadow:0 0 0 4px var(--accent-soft)}
+
+  /* hero + replay video */
+  .hero{text-align:center;padding:60px 0 40px;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(120% 70% at 50% -18%, var(--accent-soft), transparent 60%)}
+  .hero .wrap{position:relative}
+  .replay-frame{aspect-ratio:16/9;margin:40px auto 0;max-width:900px;border-radius:16px;
+    overflow:hidden;position:relative;border:1px solid var(--line);
+    background:#3f4a1c;display:grid;place-items:center}
+  .vplay{width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,.95);
+    color:#0b0c0e;display:grid;place-items:center;box-shadow:0 14px 40px rgba(0,0,0,.55)}
+  .slot-label{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3)}
+
+  /* apply section */
+  .apply-head{text-align:center;max-width:640px;margin:0 auto 36px}
+  .apply-head h2{font-size:clamp(24px,3.4vw,34px)}
+
+  /* =====================================================================
+     TYPEFORM MOCKUP, mimics a real single-question Typeform slide
+     ===================================================================== */
+  .typeform{max-width:760px;margin:0 auto;background:#fff;color:#2b2b31;border-radius:16px;
+    position:relative;overflow:hidden;min-height:480px;
+    box-shadow:0 30px 80px -34px rgba(0,0,0,.75);border:1px solid rgba(0,0,0,.08);
+    display:flex;flex-direction:column}
+  .tf-slide{flex:1;display:none;flex-direction:column;justify-content:center;
+    padding:64px 60px;max-width:640px}
+  .tf-slide.active{display:flex;animation:tfIn .38s cubic-bezier(.22,.61,.36,1)}
+  @keyframes tfIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  /* completion state */
+  .tf-done{flex:1;display:none;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:64px 60px}
+  .tf-done.active{display:flex;animation:tfIn .5s cubic-bezier(.22,.61,.36,1)}
+  .tf-done .chk{width:66px;height:66px;border-radius:50%;margin-bottom:22px;display:grid;
+    place-items:center;background:color-mix(in srgb,var(--accent) 15%,#fff);color:var(--accent)}
+  .tf-done .chk svg{width:33px;height:33px}
+  .tf-done h3{font-size:26px;font-weight:600;color:#33333b;letter-spacing:-.01em;line-height:1.25}
+  .tf-done p{font-size:16px;color:#8a8a93;margin:10px 0 0}
+  .tf-qnum{display:inline-flex;align-items:center;gap:6px;color:var(--accent);
+    font-size:15px;font-weight:600;margin-bottom:14px}
+  .tf-qnum svg{width:15px;height:15px}
+  .tf-q{font-size:27px;font-weight:600;line-height:1.28;color:#33333b;letter-spacing:-.01em}
+  .tf-q .req{color:var(--accent)}
+  .tf-desc{font-size:15px;color:#8a8a93;margin-top:8px}
+  .tf-opts{margin-top:26px;display:flex;flex-direction:column;gap:12px}
+  .tf-opt{display:flex;align-items:center;gap:12px;padding:12px 14px;cursor:pointer;
+    border:1.5px solid color-mix(in srgb,var(--accent) 45%,#fff);border-radius:9px;
+    background:color-mix(in srgb,var(--accent) 6%,#fff);
+    color:color-mix(in srgb,var(--accent) 88%,#111);font-size:16px;font-weight:500;
+    transition:background .15s ease,border-color .15s ease}
+  .tf-opt:hover{background:color-mix(in srgb,var(--accent) 14%,#fff)}
+  .tf-opt.sel{background:color-mix(in srgb,var(--accent) 22%,#fff);border-color:var(--accent)}
+  .tf-key{flex:none;width:26px;height:26px;border-radius:6px;display:grid;place-items:center;
+    border:1.5px solid color-mix(in srgb,var(--accent) 45%,#fff);font-size:13px;font-weight:700;
+    color:color-mix(in srgb,var(--accent) 88%,#111);background:#fff}
+  .tf-opt .tick{margin-left:auto;width:18px;height:18px;color:var(--accent);opacity:0}
+  .tf-opt.sel .tick{opacity:1}
+  .tf-actions{display:flex;align-items:center;gap:16px;margin-top:30px}
+  .tf-ok{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;
+    font-weight:700;font-size:16px;border:none;border-radius:7px;padding:11px 22px;cursor:pointer;
+    box-shadow:0 3px 0 color-mix(in srgb,var(--accent) 60%,#000)}
+  .tf-ok:hover{filter:brightness(1.04)}
+  .tf-hint{font-size:14px;color:#9a9aa2;display:flex;align-items:center;gap:6px}
+  .tf-hint kbd{display:inline-flex;align-items:center;gap:4px;border:1px solid #d3d3d8;
+    border-radius:4px;padding:1px 6px;font-size:12px;font-family:inherit;color:#6b6b73}
+  /* progress + nav */
+  .tf-bottom{position:absolute;left:0;right:0;bottom:0}
+  .tf-progress{height:5px;background:#ececf0}
+  .tf-progress i{display:block;height:100%;width:20%;background:var(--accent);
+    border-radius:0 3px 3px 0;transition:width .3s ease}
+  .tf-brandbar{display:flex;align-items:center;justify-content:space-between;padding:12px 18px}
+  .tf-brand{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:#4a4a52}
+  .tf-brand svg{width:18px;height:18px}
+  .tf-nav{display:flex;gap:8px}
+  .tf-nav button{width:34px;height:30px;border:none;background:var(--accent);color:#fff;
+    border-radius:5px;display:grid;place-items:center;cursor:pointer;opacity:.9}
+  .tf-nav button:first-child{opacity:.5}
+  .tf-nav svg{width:16px;height:16px}
+
+  /* routing connector */
+  .route-note{display:flex;align-items:center;justify-content:center;gap:12px;
+    margin:26px auto;max-width:760px;color:var(--text-3);font-size:13px;
+    letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+  .route-note::before,.route-note::after{content:"";flex:1;height:1px;
+    background:linear-gradient(90deg,transparent,var(--line),transparent)}
+
+  /* =====================================================================
+     CALENDLY MOCKUP, mimics a real Calendly booking embed
+     ===================================================================== */
+  .calendly{max-width:900px;margin:0 auto;background:#fff;color:#0a2540;border-radius:14px;
+    overflow:hidden;border:1px solid rgba(0,0,0,.1);box-shadow:0 30px 80px -34px rgba(0,0,0,.75);
+    display:grid;grid-template-columns:280px 1fr 210px;min-height:440px;font-size:14px}
+  .cy-info{padding:26px 24px;border-right:1px solid #eef0f2}
+  .cy-host{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+  .cy-host .av{width:34px;height:34px;border-radius:50%;background:#e6ecf5;overflow:hidden;
+    display:grid;place-items:center;font-weight:700;color:#0a2540;font-size:14px}
+  .cy-host .av img{width:100%;height:100%;object-fit:cover}
+  .cy-hostname{font-size:14px;color:#6b7785;font-weight:600}
+  .cy-title{font-size:22px;font-weight:700;color:#1a1a1a;line-height:1.2;margin:2px 0 18px}
+  .cy-meta{display:flex;flex-direction:column;gap:12px;color:#4a5561;font-size:14.5px}
+  .cy-meta div{display:flex;align-items:flex-start;gap:10px}
+  .cy-meta svg{width:19px;height:19px;flex:none;color:#4a5561;margin-top:1px}
+  .cy-desc{margin-top:22px;font-size:13.5px;color:#6b7785;line-height:1.5}
+  /* calendar */
+  .cy-cal{padding:26px 26px 20px}
+  .cy-cal h4{margin:0 0 18px;font-size:17px;font-weight:700;color:#1a1a1a}
+  .cy-month{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+  .cy-month b{font-size:15px;font-weight:700;color:#1a1a1a}
+  .cy-month .nav{display:flex;gap:6px}
+  .cy-month .nav button{width:30px;height:30px;border:none;background:transparent;border-radius:50%;
+    color:#006BFF;cursor:pointer;display:grid;place-items:center}
+  .cy-month .nav button:hover{background:#eef4ff}
+  .cy-month .nav svg{width:16px;height:16px}
+  .cy-dow{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:6px}
+  .cy-dow span{text-align:center;font-size:11px;font-weight:700;color:#8b98a5;letter-spacing:.02em}
+  .cy-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+  .cy-day{aspect-ratio:1;display:grid;place-items:center;font-size:14px;border-radius:50%;
+    color:#c5ccd3;font-weight:600}
+  .cy-day.av{color:#006BFF;background:#eef4ff;cursor:pointer;font-weight:700}
+  .cy-day.av:hover{background:#dbe8ff}
+  .cy-day.sel{background:#006BFF;color:#fff}
+  /* times */
+  .cy-times{padding:26px 20px;border-left:1px solid #eef0f2;display:flex;flex-direction:column}
+  .cy-times .lab{font-size:14px;font-weight:700;color:#1a1a1a;margin-bottom:4px}
+  .cy-times .fmt{font-size:12.5px;color:#8b98a5;margin-bottom:14px}
+  .cy-slot{border:1.5px solid #d3dce4;color:#006BFF;font-weight:700;text-align:center;
+    padding:11px;border-radius:8px;margin-bottom:10px;cursor:pointer;font-size:14.5px;background:#fff}
+  .cy-slot:hover{border-color:#006BFF}
+  .cy-foot{grid-column:1/-1;border-top:1px solid #eef0f2;display:flex;align-items:center;
+    justify-content:flex-end;padding:10px 22px}
+  .cy-brand{display:flex;align-items:center;gap:7px;font-size:12px;color:#6b7785;font-weight:600}
+  .cy-brand svg{width:18px;height:18px}
+  .cy-slot.sel{border-color:#006BFF;background:#eef4ff;color:#0057cc}
+  .cy-confirm{margin-top:auto;background:#006BFF;color:#fff;font-weight:700;border:none;
+    border-radius:8px;padding:12px;cursor:pointer;font-size:15px;opacity:0;pointer-events:none;
+    transform:translateY(4px);transition:opacity .22s ease,transform .22s ease}
+  .cy-confirm.on{opacity:1;pointer-events:auto;transform:none}
+  .cy-confirm:hover{background:#0057cc}
+  /* booked confirmation state (replaces the picker on confirm) */
+  .cy-booked{display:none;grid-column:1/-1;flex-direction:column;align-items:center;
+    justify-content:center;text-align:center;padding:60px 30px;min-height:440px}
+  .calendly.booked .cy-info,.calendly.booked .cy-cal,.calendly.booked .cy-times{display:none}
+  .calendly.booked .cy-booked{display:flex;animation:tfIn .45s cubic-bezier(.22,.61,.36,1)}
+  .cy-check{width:62px;height:62px;border-radius:50%;background:#e7f0ff;color:#006BFF;
+    display:grid;place-items:center;margin-bottom:20px}
+  .cy-check svg{width:31px;height:31px}
+  .cy-booked h3{font-size:24px;color:#1a1a1a;font-weight:700}
+  .cy-booked p{color:#4a5561;margin:11px 0 22px;font-size:15px}
+  .cy-booked p b{color:#1a1a1a}
+  .cy-addcal{display:inline-flex;background:#006BFF;color:#fff;font-weight:700;
+    padding:11px 24px;border-radius:8px;font-size:14.5px}
+  .cy-addcal:hover{background:#0057cc}
+
+  /* booking step, hidden until the application is completed */
+  .booking{margin-top:72px}
+  .booking[hidden]{display:none}
+  .booking.reveal{animation:revealUp .55s cubic-bezier(.22,.61,.36,1)}
+  @keyframes revealUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+  .booking-head{text-align:center;max-width:560px;margin:0 auto 34px}
+  .booking-head h3{font-size:clamp(22px,3vw,30px);font-weight:800;letter-spacing:-.02em}
+  .booking-head p{font-size:16px;color:var(--text-2);margin:12px 0 0}
+
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important}
+    html{scroll-behavior:auto}
+    .cy-confirm{transition:none}
+  }
+
+  /* video testimonials + proof (shared) */
+  .vgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;max-width:920px;margin:0 auto}
+  .vcard{text-align:center}
+  .vframe{aspect-ratio:16/9;border-radius:14px;overflow:hidden;position:relative;
+    background:linear-gradient(160deg,#0f1216,#0a0b0d);border:1px solid var(--line);
+    display:grid;place-items:center}
+  .vframe .vplay{width:60px;height:60px}
+  .vname{font-size:18px;font-weight:700;margin:20px 0 4px}
+  .vdesc{font-size:14.5px;color:var(--text-2);margin:0 auto;max-width:34ch}
+  .proof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .shot{aspect-ratio:4/3;border-radius:12px;background:var(--surface);border:1px solid var(--line);
+    display:grid;place-items:center}
+
+  /* footer */
+  .foot{border-top:1px solid var(--line);background:var(--surface);
+    display:flex;align-items:center;justify-content:center;padding:13px 0}
+  .foot .brand{font-size:17px}.foot .mark{width:24px;height:24px}
+
+  @media(max-width:860px){
+    .typeform{min-height:auto}.tf-slide{padding:44px 30px}
+    .calendly{grid-template-columns:1fr}
+    .cy-info,.cy-times{border-right:none;border-left:none;border-bottom:1px solid #eef0f2}
+    .vgrid{grid-template-columns:1fr}.proof-grid{grid-template-columns:repeat(2,1fr)}
+  }
+
+  
+  .shot{aspect-ratio:437/630!important}
+  .shot img{width:100%;height:100%;object-fit:cover;object-position:top}
+  .vquote{display:flex;align-items:center;justify-content:center;padding:28px 32px;text-align:left;background:linear-gradient(160deg,var(--surface-2),var(--surface))!important}
+  .vquote p{margin:0;font:700 clamp(17px,2vw,21px)/1.4 SFD,Inter,sans-serif;color:var(--text)}
+  .wall{columns:3 280px;column-gap:16px}
+  .wq{break-inside:avoid;margin:0 0 16px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 22px 18px}
+  .wq blockquote{margin:0;font-size:16px;line-height:1.55;color:var(--text)}
+  .wq figcaption{margin-top:12px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3)}
+
+  /* matches the register page: light cream, same cards and type */
+  body{background:var(--bg)!important;color:var(--text)}
+  h1,h2,h3{font-family:var(--display)!important;font-weight:700!important;letter-spacing:-.025em}
+  .tint{background:linear-gradient(180deg,var(--bg),#eef0dc)!important}
+  .step,.prep,.typeform-shell{box-shadow:0 30px 60px -40px rgba(45,52,20,.25)}
+  .step{background:#fff!important;border:1px solid var(--line)!important;border-radius:24px!important}
+  .step-n{background:var(--accent)!important;color:#fff!important}
+  .cal-btn{background:#fff!important;color:var(--text)!important;border:1px solid var(--line)!important;border-radius:999px!important}
+  .vplay{background:#fff!important;color:var(--accent)!important;box-shadow:none!important}
+  .prep-play{color:var(--accent)!important}
+  .vquote{background:#fff!important;border:1px solid var(--line)}
+  .wq{background:#fff!important}
+  .replay-frame{border-radius:24px!important;box-shadow:none}
+  .pill-eb{margin-bottom:16px}
+
+  /* same look as the register page: EB Garamond headings, Josefin Sans text, white header, cream bands */
+  :root{--display:"EB Garamond",Garamond,Georgia,serif;--sans:"Josefin Sans",-apple-system,Helvetica,Arial,sans-serif;--font:"Josefin Sans",-apple-system,Helvetica,Arial,sans-serif;--nude:#e9ead6}
+  body{background:#fff!important;font-family:var(--sans)!important}
+  h1,h2,h3{font-family:var(--display)!important;font-weight:500!important;letter-spacing:-1px!important;color:var(--ink)}
+  h1 em,h2 em{font-style:italic;font-weight:600}
+  .tint{background:var(--cream,#f8f5ea)!important}
+  .jd-head{background:#fff!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;border:0!important;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+  .jd-head .row{height:100px;max-width:940px}
+  .jd-head .logo{font:500 34px/1 var(--display);letter-spacing:-.5px}
+  .jd-pill{display:inline-flex;align-items:center;border-radius:50px;background:#4f5d23;color:#fff;font:500 16px/1 var(--sans);text-transform:uppercase;padding:15px 26px 12px;box-shadow:0 10px 11px rgba(0,0,0,.11)}
+  .cta{background:none!important;border:0!important;padding:0!important}
+  .cta span{background:#4f5d23!important;font:500 18px/1 var(--sans)!important;letter-spacing:0!important;padding:16px 30px 13px!important;box-shadow:0 10px 11px rgba(0,0,0,.11)!important}
+  .cta span::after{display:none!important}
+  .step-n{font-family:var(--sans)!important}
+  .jd-foot{background:#f8f5ea;text-align:center;padding:22px 20px 26px;color:#000}
+  .jd-foot p{margin:0 auto;max-width:900px}
+  .jd-foot .c1{margin-bottom:14px;font:400 16px/1.4 var(--sans)}
+  .jd-foot .c2{font:300 12px/1.45 var(--sans)}
+  @media(max-width:640px){.jd-head .row{height:64px}.jd-head .logo{font-size:28px}.jd-pill{font-size:13px;padding:12px 16px 10px}}
+  .vquote p{font-family:var(--display)!important;font-weight:500!important;font-size:clamp(19px,2.2vw,23px)!important;letter-spacing:-.3px}
+</style>
+</head>
+<body>
+
+<header class="jd-head">
+  <div class="wrap row">
+    <span class="logo">Manifest Your Purpose<i>.</i></span>
+    <span class="jd-pill">Replay</span>
+  </div>
+</header>
+
+  <!-- ============ HERO + REPLAY VIDEO ============ -->
+  <section class="hero">
+    <div class="wrap narrow">
+      <h1>The Proven Way To Win Grants &amp; Pitch Competitions For Your Business (Even If You&rsquo;ve Never Pitched Before)</h1>
+      <p class="lead">The replay comes down soon. Once it's gone, it's gone. Watch it now.</p>
+      <div class="replay-frame">
+        <img src="../assets/img/replay-poster.jpg?v=3" alt="Replay: Money Moves Masterclass" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><span class="vplay" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ APPLICATION (Typeform → Calendly) ============ -->
+  <section class="section" id="apply">
+    <div class="wrap">
+      <div class="apply-head">
+        <span class="eyebrow">Next step</span>
+        <h2>See if you qualify to work with me</h2>
+        <p class="lead">Answer three quick questions. If it&rsquo;s a fit, you&rsquo;ll book a free call with me on the spot.</p>
+      </div>
+
+      <!-- TYPEFORM MOCKUP, real multi-step behaviour; reveals Calendly on completion -->
+      <div class="typeform" id="typeform" role="group" aria-label="Application form">
+
+        <!-- Q1 -->
+        <div class="tf-slide active" data-step="1">
+          <span class="tf-qnum">
+            1
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+          <div class="tf-q">Where are you at right now? <span class="req">*</span></div>
+          <div class="tf-desc">Choose the option that fits you best.</div>
+          <div class="tf-opts">
+            <label class="tf-opt sel"><span class="tf-key">A</span> I have a business idea, not registered yet
+              <svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></label>
+            <label class="tf-opt"><span class="tf-key">B</span> Registered, under $50K a year in sales
+              <svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></label>
+            <label class="tf-opt"><span class="tf-key">C</span> Making $50K to $250K a year
+              <svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></label>
+            <label class="tf-opt"><span class="tf-key">D</span> Making over $250K a year
+              <svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></label>
+          </div>
+          <div class="tf-actions">
+            <button class="tf-ok" type="button">OK
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            </button>
+            <span class="tf-hint">press <kbd>Enter ↵</kbd></span>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="tf-slide" data-step="2">
+          <span class="tf-qnum">
+            2
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+          <div class="tf-q">What would a win look like in the next 90 days? <span class="req">*</span></div>
+          <div class="tf-desc">Pick the closest goal.</div>
+          <div class="tf-opts">
+            <label class="tf-opt sel"><span class="tf-key">A</span> Get my business funder-ready
+              <svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></label>
+            <label class="tf-opt"><span class="tf-key">B</span> Win my first grant
+              <svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></label>
+            <label class="tf-opt"><span class="tf-key">C</span> Pitch and place in a competition
+              <svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></label>
+            <label class="tf-opt"><span class="tf-key">D</span> Raise $25K+ without giving up equity
+              <svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></label>
+          </div>
+          <div class="tf-actions">
+            <button class="tf-ok" type="button">OK
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            </button>
+            <span class="tf-hint">press <kbd>Enter ↵</kbd></span>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="tf-slide" data-step="3">
+          <span class="tf-qnum">
+            3
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+          <div class="tf-q">How soon are you looking to get moving? <span class="req">*</span></div>
+          <div class="tf-desc">Be honest, it helps us prep for your call.</div>
+          <div class="tf-opts">
+            <label class="tf-opt sel"><span class="tf-key">A</span> Right away
+              <svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></label>
+            <label class="tf-opt"><span class="tf-key">B</span> In the next 30 days
+              <svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></label>
+            <label class="tf-opt"><span class="tf-key">C</span> In the next 90 days
+              <svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></label>
+            <label class="tf-opt"><span class="tf-key">D</span> Just looking for now
+              <svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></label>
+          </div>
+          <div class="tf-actions">
+            <button class="tf-ok" type="button">Submit
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            </button>
+            <span class="tf-hint">press <kbd>Enter ↵</kbd></span>
+          </div>
+        </div>
+
+        <!-- completion beat -->
+        <div class="tf-done" id="tfDone" aria-live="polite">
+          <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <h3>Thanks, one last step: pick a time</h3>
+          <p>Your booking calendar is opening below.</p>
+        </div>
+
+        <div class="tf-bottom">
+          <div class="tf-progress"><i id="tfBar"></i></div>
+          <div class="tf-brandbar">
+            <span class="tf-brand">
+              <svg viewBox="0 0 24 24" fill="#262627" aria-hidden="true"><path d="M4 4h16a1 1 0 0 1 1 1v3H3V5a1 1 0 0 1 1-1zm-1 6h18v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9zm7 3v4l4-2z"/></svg>
+              Typeform
+            </span>
+            <div class="tf-nav">
+              <button type="button" aria-label="Previous" id="tfPrev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg></button>
+              <button type="button" aria-label="Next" id="tfNext"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOOKING STEP, hidden until the Typeform is completed -->
+      <div class="booking" id="booking" hidden>
+        <div class="booking-head">
+          <span class="eyebrow">You're in, last step</span>
+          <h3>Grab your call time</h3>
+          <p>Pick a day and time that works. On this call we map your funding plan for the next 90 days.</p>
+        </div>
+
+        <!-- CALENDLY MOCKUP (the booking step the Typeform hands off to) -->
+        <div class="calendly" id="calendly">
+        <div class="cy-info">
+          <div class="cy-host">
+            <span class="av"><img src="../assets/img/deck/s-close.jpg" alt="" onerror="this.style.display='none';this.parentNode.textContent='S'"></span>
+            <span class="cy-hostname">Saria Hawkins-Banda</span>
+          </div>
+          <div class="cy-title">Money Moves Strategy Call</div>
+          <div class="cy-meta">
+            <div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              30 min
+            </div>
+            <div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M15 10l5-3v10l-5-3z"/><rect x="3" y="6" width="12" height="12" rx="2"/></svg>
+              Web conferencing details provided upon confirmation.
+            </div>
+          </div>
+          <p class="cy-desc">A short call to map your funding plan and see if Money Moves Coaching is a fit.</p>
+        </div>
+
+        <div class="cy-cal">
+          <h4>Select a Date &amp; Time</h4>
+          <div class="cy-month">
+            <b>November 2026</b>
+            <div class="nav">
+              <button aria-label="Previous month"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+              <button aria-label="Next month"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+            </div>
+          </div>
+          <div class="cy-dow"><span>SUN</span><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span></div>
+          <div class="cy-grid">
+            <span class="cy-day">1</span><span class="cy-day av">2</span><span class="cy-day av">3</span><span class="cy-day av">4</span><span class="cy-day sel">5</span><span class="cy-day av">6</span><span class="cy-day">7</span>
+            <span class="cy-day">8</span><span class="cy-day av">9</span><span class="cy-day av">10</span><span class="cy-day av">11</span><span class="cy-day av">12</span><span class="cy-day av">13</span><span class="cy-day">14</span>
+            <span class="cy-day">15</span><span class="cy-day av">16</span><span class="cy-day av">17</span><span class="cy-day av">18</span><span class="cy-day av">19</span><span class="cy-day av">20</span><span class="cy-day">21</span>
+            <span class="cy-day">22</span><span class="cy-day av">23</span><span class="cy-day av">24</span><span class="cy-day av">25</span><span class="cy-day av">26</span><span class="cy-day av">27</span><span class="cy-day">28</span>
+            <span class="cy-day">29</span><span class="cy-day av">30</span>
+          </div>
+        </div>
+
+        <div class="cy-times">
+          <div class="lab cy-lab">Thursday, November 5</div>
+          <div class="fmt">
+            <svg viewBox="0 0 24 24" width="12" height="12" style="display:inline;vertical-align:-1px;margin-right:3px" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>
+            12h &nbsp;·&nbsp; Central Time
+          </div>
+          <div class="cy-slot">9:00am</div>
+          <div class="cy-slot">9:30am</div>
+          <div class="cy-slot">10:00am</div>
+          <div class="cy-slot">1:00pm</div>
+          <div class="cy-slot">2:30pm</div>
+          <button class="cy-confirm" id="cyConfirm" type="button">Confirm</button>
+        </div>
+
+        <!-- confirmation state (shown after Confirm) -->
+        <div class="cy-booked" id="cyBooked" aria-live="polite">
+          <span class="cy-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <h3>You're booked</h3>
+          <p>Money Moves Strategy Call · <b id="cyWhen">Thursday, November 5 · 9:00am</b><br>A calendar invite with the meeting link is on its way.</p>
+          <a class="cy-addcal" href="https://calendly.com/nikola-monetisebetter/discovery">Add to calendar</a>
+        </div>
+
+        <div class="cy-foot">
+          <span class="cy-brand">
+            <svg viewBox="0 0 24 24" fill="#006BFF" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 4.2c1.7 0 3.2.8 4.1 2.1l-2 1.2A2.9 2.9 0 0 0 12 8.4a3.6 3.6 0 0 0 0 7.2c.9 0 1.7-.4 2.2-1l2 1.2A5 5 0 1 1 12 6.2z"/></svg>
+            Calendly
+          </span>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ROOM QUOTES ============ -->
+  <section class="section tint">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">In their words</span>
+        <h2>What women say after a room with Saria</h2>
+      </div>
+      <div class="vgrid">
+        <article class="vcard">
+          <div class="vframe vquote"><p>&ldquo;You might have changed everything for me.&rdquo;</p></div>
+          <div class="vname">Money Moves Summit attendee</div>
+          <p class="vdesc">Sold-out Money Moves Summit</p>
+        </article>
+        <article class="vcard">
+          <div class="vframe vquote"><p>&ldquo;10/10, no notes. The best summit I&rsquo;ve attended, corporate events included.&rdquo;</p></div>
+          <div class="vname">Money Moves Summit attendee</div>
+          <p class="vdesc">Sold-out Money Moves Summit</p>
+        </article>
+      </div>
+    </div>
+  </section>
+  <!-- ============ PROOF PHOTOS (8 equal slots) ============ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Proof</span>
+        <h2>Inside Saria&rsquo;s rooms</h2>
+      </div>
+      <div class="proof-grid">
+          <div class="shot"><img src="../assets/img/deck/summitroom.jpg" alt="Presenting a check at the Money Moves Summit" loading="lazy"></div>
+          <div class="shot"><img src="../assets/img/deck/sg1.jpg" alt="Saria Hawkins-Banda" loading="lazy"></div>
+          <div class="shot"><img src="../assets/img/deck/goldman.jpg" alt="Goldman Sachs 10,000 Small Businesses" loading="lazy"></div>
+          <div class="shot"><img src="../assets/img/deck/market.jpg" alt="Manifest Your Purpose market" loading="lazy"></div>
+          <div class="shot"><img src="../assets/img/deck/sg2.jpg" alt="Money Moves Summit stage" loading="lazy"></div>
+          <div class="shot"><img src="../assets/img/deck/hs1.jpg" alt="Saria Hawkins-Banda" loading="lazy"></div>
+          <div class="shot"><img src="../assets/img/deck/hs3.jpg" alt="Saria Hawkins-Banda" loading="lazy"></div>
+          <div class="shot"><img src="../assets/img/deck/hs2.jpg" alt="Saria Hawkins-Banda" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Client wins</span>
+        <h2>Real funding wins from Saria&rsquo;s clients</h2>
+      </div>
+      <div class="wall"><figure class="wq"><blockquote>[CONFIRM: client grant or pitch-competition win, in her words]</blockquote><figcaption>Client name, business</figcaption></figure><figure class="wq"><blockquote>[CONFIRM: client grant or pitch-competition win, in her words]</blockquote><figcaption>Client name, business</figcaption></figure><figure class="wq"><blockquote>[CONFIRM: client grant or pitch-competition win, in her words]</blockquote><figcaption>Client name, business</figcaption></figure></div>
+    </div>
+  </section>
+  <!-- ============ FOOTER ============ -->
+  <footer class="jd-foot"><p class="c1">Copyright &copy; 2026 Manifest Your Purpose, LLC | All Rights Reserved | Privacy Policy | Terms Of Service</p><p class="c2">This website is operated by Manifest Your Purpose, LLC. The material provided is for educational and informational purposes only. No guarantees are made regarding your results. Your results may vary and depend on factors beyond our control. Past results don&rsquo;t guarantee future outcomes.</p></footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* =========================================================
+     TYPEFORM, multi-step: select → OK/Enter advances → reveal
+     ========================================================= */
+  var tf     = document.getElementById("typeform");
+  var slides = [].slice.call(tf.querySelectorAll(".tf-slide"));
+  var done   = document.getElementById("tfDone");
+  var bar    = document.getElementById("tfBar");
+  var booking= document.getElementById("booking");
+  var idx = 0, finished = false;
+
+  function setProgress(){
+    if(bar) bar.style.width = Math.round(((idx+1)/slides.length)*100) + "%";
+  }
+  function show(i){
+    idx = Math.max(0, Math.min(slides.length-1, i));
+    slides.forEach(function(s,n){ s.classList.toggle("active", n===idx); });
+    if(done) done.classList.remove("active");
+    setProgress();
+  }
+  function select(slide, opt){
+    slide.querySelectorAll(".tf-opt").forEach(function(x){ x.classList.remove("sel"); });
+    opt.classList.add("sel");
+  }
+  function advance(){
+    if(finished) return;
+    if(idx < slides.length-1){ show(idx+1); }
+    else { complete(); }
+  }
+  function back(){ if(!finished && idx>0) show(idx-1); }
+
+  function complete(){
+    finished = true;
+    slides.forEach(function(s){ s.classList.remove("active"); });
+    if(bar) bar.style.width = "100%";
+    if(done) done.classList.add("active");
+    setTimeout(function(){
+      if(!booking) return;
+      booking.hidden = false;
+      if(!reduce) booking.classList.add("reveal");
+      try{ booking.scrollIntoView({behavior: reduce ? "auto" : "smooth", block: "start"}); }catch(e){}
+    }, reduce ? 250 : 950);
+  }
+
+  // wire each slide's options + OK button
+  slides.forEach(function(slide){
+    slide.querySelectorAll(".tf-opt").forEach(function(o){
+      o.addEventListener("click", function(){ select(slide, o); });
+    });
+    var ok = slide.querySelector(".tf-ok");
+    if(ok) ok.addEventListener("click", advance);
+  });
+
+  // nav arrows
+  var nx = document.getElementById("tfNext"); if(nx) nx.addEventListener("click", advance);
+  var pv = document.getElementById("tfPrev"); if(pv) pv.addEventListener("click", back);
+
+  // keyboard: A/B/C/D selects, Enter advances (only while a question is active)
+  document.addEventListener("keydown", function(e){
+    if(finished) return;
+    var active = slides[idx];
+    if(!active || !active.classList.contains("active")) return;
+    var k = (e.key || "").toUpperCase();
+    var map = {A:0, B:1, C:2, D:3};
+    if(k in map){
+      var o = active.querySelectorAll(".tf-opt")[map[k]];
+      if(o){ select(active, o); e.preventDefault(); }
+    } else if(e.key === "Enter"){
+      e.preventDefault(); advance();
+    }
+  });
+
+  show(0);
+
+  /* =========================================================
+     CALENDLY, pick a date + time, then Confirm → booked state
+     ========================================================= */
+  var cal    = document.getElementById("calendly");
+  var confirm= document.getElementById("cyConfirm");
+  var lab     = cal.querySelector(".cy-lab");
+  var dayNames= ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+
+  function clearTimes(){
+    cal.querySelectorAll(".cy-slot").forEach(function(x){ x.classList.remove("sel"); });
+    if(confirm){ confirm.classList.remove("on"); delete confirm.dataset.time; }
+  }
+
+  // date selection (November 2026: the 1st is a Sunday → index 0)
+  cal.querySelectorAll(".cy-day.av").forEach(function(d){
+    d.addEventListener("click", function(){
+      cal.querySelectorAll(".cy-day").forEach(function(x){ x.classList.remove("sel"); });
+      d.classList.add("sel");
+      var day = parseInt(d.textContent, 10);
+      if(lab) lab.textContent = dayNames[(day-1)%7] + ", November " + day;
+      clearTimes();
+    });
+  });
+
+  // time selection → enables Confirm
+  cal.querySelectorAll(".cy-slot").forEach(function(s){
+    s.addEventListener("click", function(){
+      cal.querySelectorAll(".cy-slot").forEach(function(x){ x.classList.remove("sel"); });
+      s.classList.add("sel");
+      if(confirm){ confirm.classList.add("on"); confirm.dataset.time = s.textContent.trim(); }
+    });
+  });
+
+  // confirm → booked confirmation state
+  if(confirm) confirm.addEventListener("click", function(){
+    var when = (lab ? lab.textContent : "") + " · " + (confirm.dataset.time || "");
+    var w = document.getElementById("cyWhen"); if(w) w.textContent = when;
+    cal.classList.add("booked");
+  });
+})();
+</script>
+</body>
+</html>

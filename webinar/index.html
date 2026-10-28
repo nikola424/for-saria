@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+  <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
+<title>Money Moves Masterclass · Saria Hawkins-Banda</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:"SFD";src:url(../assets/fonts/sfpro-bold.woff2) format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"Inter";src:url(../assets/fonts/inter-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
+:root{--ink:#f8f5ea;--ink2:#fffaf6;--red:#4f5d23;--red2:#a3c93a;--deep:#262c10;--cream:#1d1f14;--mute:rgba(40,46,18,.66);--line:rgba(40,46,18,.12)}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{overflow:hidden;background:#000;color:var(--cream);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+#stage{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);width:min(100vw,177.78vh);height:min(56.25vw,100vh);overflow:hidden;background:var(--ink)}
+.slide{position:absolute;inset:0;overflow:hidden;container-type:size;background:var(--ink)}
+#bar{position:fixed;left:0;top:0;height:3px;background:var(--red);width:0;transition:width .3s ease;z-index:5}
+#counter{position:fixed;right:14px;bottom:12px;z-index:5;font:12px/1 Inter,system-ui;color:var(--cream);opacity:.45;letter-spacing:.06em;font-variant-numeric:tabular-nums}
+#hint{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:5;font:12px/1 Inter;color:var(--cream);opacity:.4;transition:opacity .6s}
+
+/* type */
+h1,h2,h3{font-family:SFD,"SF Pro Display",-apple-system,Inter,sans-serif;font-weight:700;margin:0;letter-spacing:-.02em;line-height:1.04}
+.h1{font-size:6.2cqw}.h2{font-size:4.6cqw}.h3{font-size:3.3cqw}
+p{margin:0}
+.sub{font-size:1.9cqw;line-height:1.4;color:var(--mute);margin-top:2.6cqh;max-width:46ch}
+.eye{font:600 1.15cqw/1 Inter;letter-spacing:.18em;text-transform:uppercase;color:var(--red2);margin-bottom:3cqh}
+.r{color:var(--red2)}
+.brand{position:absolute;left:4cqw;top:5cqh;font:700 1.5cqw/1 SFD,Inter;color:var(--red2);letter-spacing:-.01em;z-index:3}
+
+/* layouts */
+.c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8cqh 9cqw}
+.c .sub{margin-left:auto;margin-right:auto}
+.redbg{background:var(--red)} .redbg .sub{color:rgba(255,255,255,.82)} .redbg .eye{color:#fff;opacity:.8}
+.creambg{background:var(--cream);color:var(--ink)} .creambg .sub{color:rgba(14,13,13,.62)} .creambg .eye{color:var(--red)}
+.full img.bg{position:absolute;top:0;right:0;width:56%;height:100%;object-fit:cover}
+.full.rt img.bg{right:auto;left:0}
+.full::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--ink) 0%,var(--ink) 44%,rgba(14,13,13,.55) 52%,rgba(14,13,13,0) 64%)}
+.full.rt::after{background:linear-gradient(270deg,var(--ink) 0%,var(--ink) 44%,rgba(14,13,13,.55) 52%,rgba(14,13,13,0) 64%)}
+.full .tx{position:absolute;z-index:2;left:6cqw;top:50%;transform:translateY(-50%);max-width:40cqw}
+.full.rt .tx{left:auto;right:6cqw}
+.split{display:grid;grid-template-columns:1fr 1fr;height:100%}
+.split .ph{position:relative;overflow:hidden}
+.split .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 15%}
+.split .tx{display:flex;flex-direction:column;justify-content:center;padding:0 6cqw}
+.split.rev .ph{order:2}
+.ph-frame{width:100%;height:100%;object-fit:cover;object-position:50% 15%;border-radius:1.4cqw}
+.framed{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:6cqw;padding:0 7cqw}
+.framed .pic{height:72cqh;display:flex;align-items:center;justify-content:center}
+.framed .pic img{max-height:72cqh;max-width:100%;border-radius:1.2cqw;box-shadow:0 3cqh 8cqh rgba(0,0,0,.5)}
+.tilt{transform:rotate(-3deg)}
+.pol{background:#fff;padding:1.2cqw 1.2cqw 5cqh;border-radius:.4cqw;box-shadow:0 3cqh 8cqh rgba(0,0,0,.5);transform:rotate(-4deg)}
+.pol img{display:block;height:60cqh;width:auto;max-width:34cqw;object-fit:cover}
+.cluster{display:flex;gap:2cqw;justify-content:center;align-items:center;margin-top:5cqh}
+.cluster img{height:52cqh;width:auto;border-radius:1cqw;object-fit:cover;box-shadow:0 2cqh 6cqh rgba(0,0,0,.5)}
+.cluster img:nth-child(2){transform:translateY(-3cqh)}
+.cluster img:nth-child(odd){transform:rotate(-2deg)}
+
+/* nodes */
+.nodes{display:flex;align-items:flex-start;justify-content:center;gap:0;margin-top:9cqh;position:relative;width:100%}
+.node{flex:1;display:flex;flex-direction:column;align-items:center;position:relative;padding:0 1.2cqw}
+.node .dot{width:7.4cqw;height:7.4cqw;border-radius:50%;background:var(--ink2);border:.25cqw solid var(--red);display:grid;place-items:center;font:700 2.6cqw SFD;color:var(--cream);position:relative;z-index:2}
+.node:not(:last-child)::after{content:"";position:absolute;top:3.7cqw;left:50%;width:100%;height:.25cqw;background:linear-gradient(90deg,var(--red),rgba(79,93,35,.25));z-index:1}
+.node b{display:block;font:700 1.9cqw/1.2 SFD;margin-top:3cqh}
+.node span{display:block;font-size:1.35cqw;line-height:1.4;color:var(--mute);margin-top:1.2cqh;max-width:22ch}
+.creambg .node .dot{background:#fff;color:var(--ink)} .creambg .node span{color:rgba(14,13,13,.6)}
+
+/* cards */
+.grid{display:grid;gap:1.6cqw;margin-top:7cqh;width:100%}
+.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--ink2);border:1px solid var(--line);border-radius:1.2cqw;padding:3.4cqh 1.8cqw;text-align:left}
+.card .n{font:700 1.2cqw SFD;color:var(--red2);letter-spacing:.1em}
+.card b{display:block;font:700 1.9cqw/1.2 SFD;margin-top:1.4cqh}
+.card span{display:block;font-size:1.3cqw;line-height:1.45;color:var(--mute);margin-top:1cqh}
+.creambg .card{background:#fff;border-color:rgba(14,13,13,.08)} .creambg .card span{color:rgba(14,13,13,.6)}
+
+/* myth */
+.myth{display:grid;grid-template-columns:1fr 1fr;height:100%}
+.myth>div{display:flex;flex-direction:column;justify-content:center;padding:0 6cqw}
+.myth .m{background:var(--ink2)} .myth .m h2{color:rgba(245,239,233,.45);text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:.35cqw}
+.myth .t{background:var(--red)}
+.myth .lab{font:600 1.2cqw Inter;letter-spacing:.2em;text-transform:uppercase;margin-bottom:3cqh;opacity:.75}
+
+/* compare */
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:2cqw;margin-top:6cqh;width:100%}
+.cmp .col{border-radius:1.2cqw;padding:3.6cqh 2.4cqw;text-align:left}
+.cmp .a{background:var(--ink2);border:1px solid var(--line)} .cmp .a h3{color:rgba(245,239,233,.5)}
+.cmp .b{background:var(--red)}
+.cmp ul{list-style:none;margin:2.6cqh 0 0;padding:0}
+.cmp li{font-size:1.65cqw;line-height:1.35;padding:1.5cqh 0;border-top:1px solid rgba(255,255,255,.14)}
+.cmp .a li{color:var(--mute)}
+
+/* quote */
+.q{position:absolute;inset:0;display:grid;grid-template-columns:38cqw 1fr;align-items:center}
+.q .ph{height:100%;position:relative}.q .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 15%}
+.q .tx{padding:0 7cqw}
+.q blockquote{margin:0;font:700 3.4cqw/1.18 SFD;letter-spacing:-.015em}
+.q cite{display:block;margin-top:4cqh;font:600 1.3cqw Inter;font-style:normal;letter-spacing:.14em;text-transform:uppercase;color:var(--red2)}
+.stars{color:var(--red2);font-size:1.8cqw;letter-spacing:.3em;margin-bottom:3cqh}
+
+/* chat prompt */
+.chat{display:inline-flex;align-items:center;gap:1.2cqw;background:#fff;color:var(--ink);border-radius:5cqw;padding:2cqh 2.4cqw 2cqh 1.4cqw;margin-top:6cqh;box-shadow:0 2cqh 6cqh rgba(0,0,0,.35)}
+.chat i{width:3.6cqw;height:3.6cqw;border-radius:50%;background:var(--red);display:grid;place-items:center;color:#fff;font:700 1.4cqw SFD;font-style:normal}
+.chat b{font:700 2.4cqw SFD}
+.caret{display:inline-block;width:.18cqw;height:2.6cqw;background:var(--red);margin-left:.4cqw;animation:blink 1s steps(1) infinite;vertical-align:middle}
+@keyframes blink{50%{opacity:0}}
+
+/* quiz */
+.quiz{display:flex;gap:2cqw;margin-top:7cqh}
+.quiz div{width:22cqw;padding:3.6cqh 0;border-radius:1.2cqw;border:.2cqw solid var(--line);font:700 2.8cqw SFD;transition:all .5s}
+.quiz .on{background:var(--red);border-color:var(--red)}
+.quiz .off{opacity:.3}
+.reveal{opacity:0;transform:translateY(2cqh);transition:all .6s;margin-top:5cqh}
+.reveal.in{opacity:1;transform:none}
+
+/* stack */
+.stack{width:100%;margin-top:5cqh;display:flex;flex-direction:column;gap:1.2cqh}
+.stack .row{display:flex;align-items:center;justify-content:space-between;background:var(--ink2);border:1px solid var(--line);border-radius:1cqw;padding:2.1cqh 2.2cqw;font:700 1.8cqw SFD;text-align:left}
+.stack .row em{font:500 1.25cqw Inter;font-style:normal;color:var(--mute)}
+.stack .row.bn{border-color:rgba(168,194,86,.6)}
+.stack .row.bn em{color:var(--red2)}
+.btn{display:inline-block;margin-top:6cqh;background:var(--red);color:#fff;font:700 2.2cqw SFD;padding:2.8cqh 4cqw;border-radius:5cqw;box-shadow:0 2cqh 6cqh rgba(79,93,35,.4)}
+.pill{display:inline-block;border:1px solid var(--line);border-radius:4cqw;padding:1.4cqh 2cqw;font-size:1.4cqw;color:var(--mute);margin-top:3cqh}
+
+/* animations on mount */
+.a1,.a2,.a3,.a4,.a5{opacity:0;transform:translateY(2.4cqh);animation:up .7s cubic-bezier(.2,.7,.2,1) forwards}
+.a2{animation-delay:.18s}.a3{animation-delay:.36s}.a4{animation-delay:.54s}.a5{animation-delay:.72s}
+@keyframes up{to{opacity:1;transform:none}}
+.zoom img.bg{animation:kb 9s ease-out forwards}
+@keyframes kb{from{transform:scale(1.08)}to{transform:scale(1)}}
+html.reduced .a1,html.reduced .a2,html.reduced .a3,html.reduced .a4,html.reduced .a5{animation:none;opacity:1;transform:none}
+html.reduced .zoom img.bg{animation:none}
+
+/* demos */
+.meter{width:70cqw;margin-top:8cqh;position:relative}
+.meter .track{height:2.2cqh;border-radius:2cqh;background:linear-gradient(90deg,#3a3434,var(--red))}
+.meter .lbls{display:flex;justify-content:space-between;margin-top:2.4cqh;font:600 1.5cqw Inter;color:var(--mute)}
+.meter .needle{position:absolute;top:-2.4cqh;left:0;width:.5cqw;height:7cqh;background:var(--cream);border-radius:1cqw;transition:left 1.8s cubic-bezier(.3,.8,.2,1)}
+.meter .tag{position:absolute;top:-9cqh;transform:translateX(-50%);font:700 1.6cqw SFD;background:var(--cream);color:var(--ink);padding:1cqh 1.2cqw;border-radius:.6cqw;white-space:nowrap;transition:left 1.8s cubic-bezier(.3,.8,.2,1)}
+.kill{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4cqw;margin-top:6cqh;width:100%}
+.kill div{background:var(--ink2);border:1px solid var(--line);border-radius:1cqw;padding:3cqh 1.4cqw;text-align:left;opacity:.15;transition:all .45s}
+.kill div.on{opacity:1;border-color:rgba(168,194,86,.55)}
+.kill div.big{background:var(--red);border-color:var(--red)}
+.kill i{font:700 1.2cqw SFD;color:var(--red2);font-style:normal;letter-spacing:.1em}
+.kill div.big i{color:#fff}
+.kill b{display:block;font:700 1.75cqw/1.2 SFD;margin-top:1.2cqh}
+.tri{width:84cqh;height:62cqh;margin-top:4cqh;overflow:visible}
+.tri line{stroke:var(--red);stroke-width:3;stroke-dasharray:400;stroke-dashoffset:400;transition:stroke-dashoffset 1s ease}
+.tri.go line{stroke-dashoffset:0}
+.tri circle{fill:var(--ink2);stroke:var(--red);stroke-width:3}
+.tri text{fill:var(--cream);font:700 18px SFD,Inter;text-anchor:middle}
+.tri .ctr{fill:var(--red2);font-size:13px;opacity:0;transition:opacity .6s 1.2s}
+.tri.go .ctr{opacity:1}
+.thermo{width:76cqw;margin-top:9cqh;position:relative}
+.thermo .tube{height:3cqh;border-radius:3cqh;background:#2a2525;overflow:hidden}
+.thermo .fill{height:100%;width:0;background:linear-gradient(90deg,#d9e2b8,var(--red));transition:width 3.2s cubic-bezier(.4,.1,.3,1)}
+.thermo .steps{display:flex;justify-content:space-between;margin-top:3cqh}
+.thermo .steps span{font:700 1.6cqw SFD;opacity:.25;transition:opacity .4s;width:20%;text-align:center}
+.thermo .steps span.on{opacity:1}
+.big{font:700 22cqh/1 SFD;color:var(--red2);letter-spacing:-.04em}
+.pp{display:flex;gap:4cqw;align-items:center;margin-top:7cqh}
+.pp div{width:20cqw;padding:4cqh 0;border-radius:1.2cqw;font:700 2.6cqw SFD;background:var(--ink2);border:1px solid var(--line)}
+.pp .pull{animation:pull 2.4s ease-in-out infinite}
+.pp .push{animation:push 2.4s ease-in-out infinite;background:var(--red);border-color:var(--red)}
+@keyframes pull{50%{transform:translateX(3cqw)}}
+@keyframes push{50%{transform:translateX(-3cqw)}}
+html.reduced .pp div{animation:none}
+.cover{height:66cqh;border-radius:1cqw;box-shadow:0 3cqh 8cqh rgba(0,0,0,.55);transform:rotate(-4deg)}
+.shots{display:flex;gap:2.4cqw;justify-content:center;margin-top:5cqh}
+.shots img{height:58cqh;border-radius:1.2cqw;box-shadow:0 3cqh 8cqh rgba(0,0,0,.5)}
+.shots img:nth-child(1){transform:rotate(-3deg)}.shots img:nth-child(3){transform:rotate(3deg)}
+.faq .q2{font:700 4.4cqw/1.12 SFD;max-width:20ch}
+.faq .tag{font:600 1.2cqw Inter;letter-spacing:.2em;text-transform:uppercase;color:var(--red2);margin-bottom:4cqh}
+
+/* Olive ground, cream and lime. One solid tone, plain photos, no fades. */
+:root{--ink:#3f4a1c;--ink2:#4a5722;--red:#c8e06a;--red2:#c8e06a;--deep:#262c10;--cream:#fbf9f0;--mute:rgba(251,249,240,.7);--line:rgba(251,249,240,.14)}
+body{background:#3f4a1c}
+.redbg,.myth .t,.cmp .b,.quiz .on,.btn{background:#fbf9f0;color:#3f4a1c}
+.redbg .eye{color:#66792c;opacity:1} .redbg .sub,.myth .t .lab{color:rgba(63,74,28,.7)} .cmp .b li{border-top-color:rgba(63,74,28,.12)}
+.redbg h1 span[style]{color:#66792c!important}
+.creambg{background:#fbf9f0;color:#3f4a1c} .creambg .sub{color:rgba(63,74,28,.7)} .creambg .eye{color:#66792c}
+.creambg .chat{background:#3f4a1c;color:#fbf9f0} .chat{color:#3f4a1c} .chat i{background:#c8e06a;color:#3f4a1c} .caret{background:#c8e06a}
+.full::after,.full.rt::after{display:none}
+.full img.bg{width:50%;mask-image:none;-webkit-mask-image:none}
+.full .tx{max-width:38cqw}
+.split .ph{border-radius:0;box-shadow:none}
+.q .ph{border-radius:0;box-shadow:none}
+.myth .m{background:var(--ink)} .myth .m h2{color:rgba(251,249,240,.45)}
+.stack .row.bn,.kill div.on{border-color:rgba(222,192,113,.6)}
+.kill div.big{background:#c8e06a;color:#3f4a1c;font:inherit;letter-spacing:normal} .kill div.big i{color:#3f4a1c}
+.meter .track{background:linear-gradient(90deg,#66792c,#c8e06a)}
+.thermo .fill{background:#c8e06a}
+.node:not(:last-child)::after{background:rgba(222,192,113,.5)}
+.btn{box-shadow:none}
+.redbg .btn{background:#3f4a1c!important;color:#fbf9f0!important}
+.framed .pic img,.cluster img,.shots img,.pol,.cover,.card,.stack .row,.kill div,.pp div,.chat{box-shadow:none}
+.tilt,.pol,.cover,.cluster img:nth-child(odd),.cluster img:nth-child(2){transform:none}
+.framed .pic img,.shots img,.cover{border-radius:.6cqw}
+.shots img{height:auto;max-height:58cqh;max-width:27cqw;object-fit:contain}
+.a1,.a2,.a3,.a4,.a5{animation:none;opacity:1;transform:none}
+.reveal{transition:none}
+.zoom img.bg{animation:none}
+.kill div,.quiz div{transition:none}
+h1,h2,h3{font-family:"Playfair Display",Georgia,serif;letter-spacing:-.01em}body,.sub,.eye{font-family:Poppins,system-ui,sans-serif}
+</style>
+</head>
+<body>
+<div id="stage" aria-live="polite"></div>
+<div id="bar"></div>
+<div id="counter"></div>
+<div id="hint">Click, or press → to advance</div>
+
+<script>
+const DECK = (function(){
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) document.documentElement.classList.add('reduced');
+  const stage = document.getElementById('stage');
+  const bar = document.getElementById('bar');
+  const counter = document.getElementById('counter');
+  let current = 0, SLIDES = [];
+  function show(i){
+    if (!SLIDES.length) return;
+    current = Math.max(0, Math.min(SLIDES.length - 1, i));
+    const s = SLIDES[current];
+    const el = document.createElement('section');
+    el.className = 'slide';
+    el.innerHTML = (typeof s === 'string') ? s : (s.html || '');
+    stage.replaceChildren(el);
+    if (s && typeof s.onMount === 'function') s.onMount(el, { reduced });
+    bar.style.width = (current / Math.max(1, SLIDES.length - 1) * 100) + '%';
+    counter.textContent = (current + 1) + ' / ' + SLIDES.length;
+    if (current > 0) document.getElementById('hint').style.opacity = 0;
+  }
+  const next = () => show(current + 1);
+  const prev = () => show(current - 1);
+  addEventListener('keydown', e => {
+    if (['ArrowRight',' ','Spacebar','PageDown'].includes(e.key)){ e.preventDefault(); next(); }
+    else if (['ArrowLeft','PageUp'].includes(e.key)){ e.preventDefault(); prev(); }
+    else if (e.key === 'Home'){ show(0); }
+    else if (e.key === 'End'){ show(SLIDES.length - 1); }
+  });
+  addEventListener('click', e => { (e.clientX < innerWidth * 0.33 ? prev : next)(); });
+  function load(slides){ SLIDES = slides || []; show((+new URLSearchParams(location.search).get('s')||1)-1); }
+  return { load, show, next, prev, reduced };
+})();
+
+/* ---------- slide builders (design + copy live here) ---------- */
+const I = n => `../assets/img/deck/${n}?v=4`;
+const P = { h1:'hs1.jpg', h2:'hs2.jpg', h3:'hs3.jpg', h4:'sg1.jpg', stage:'sg2.jpg', check:'summitroom.jpg', gs:'goldman.jpg', room:'market.jpg' };
+const B = `<div class="brand">Manifest Your Purpose</div>`;
+const eye = t => t ? `<div class="eye a1">${t}</div>` : '';
+const sub = t => t ? `<p class="sub a3">${t}</p>` : '';
+
+const full = (img, h, s, o={}) => `<div class="full zoom ${o.rt?'rt':''}" style="position:absolute;inset:0">
+  <img class="bg" src="${I(P[img]||img)}" alt="" style="object-position:${o.pos||'50% 15%'}">
+  <div class="tx">${eye(o.eye)}<h2 class="${o.size||'h2'} a2">${h}</h2>${sub(s)}</div></div>`;
+const split = (img, h, s, o={}) => `<div class="split ${o.rev?'rev':''}">
+  <div class="ph"><img src="${I(P[img]||img)}" alt="" style="object-position:${o.pos||'50% 15%'}"></div>
+  <div class="tx">${eye(o.eye)}<h2 class="${o.size||'h2'} a2">${h}</h2>${sub(s)}</div></div>`;
+const text = (h, s, o={}) => `<div class="c ${o.bg||''}">${B}${eye(o.eye)}<h1 class="${o.size||'h1'} a2">${h}</h1>${sub(s)}</div>`;
+const divider = (n, h, s) => `<div class="c redbg"><div class="eye a1">${n}</div><h1 class="h1 a2" style="font-size:8cqw">${h}</h1>${sub(s)}</div>`;
+const framed = (img, h, s, o={}) => `<div class="framed ${o.bg||''}" ${o.bg?'style="position:absolute;inset:0"':''}>
+  <div class="tx" style="text-align:left">${eye(o.eye)}<h2 class="h2 a2">${h}</h2>${sub(s)}</div>
+  <div class="pic a3"><img class="${o.tilt?'tilt':''}" src="${I(img)}" alt=""></div></div>`;
+const polaroid = (img, h, s, o={}) => `<div class="framed"><div class="tx" style="text-align:left">${eye(o.eye)}<h2 class="h2 a2">${h}</h2>${sub(s)}</div>
+  <div class="pic a3"><div class="pol"><img src="${I(P[img]||img)}" alt=""></div></div></div>`;
+const cluster = (imgs, h, s, o={}) => `<div class="c">${eye(o.eye)}<h2 class="h3 a2">${h}</h2>
+  <div class="cluster a3">${imgs.map(i=>`<img src="${I(P[i]||i)}" alt="">`).join('')}</div>${s?`<p class="sub a4" style="margin-top:3cqh">${s}</p>`:''}</div>`;
+const nodes = (h, items, o={}) => `<div class="c ${o.bg||''}">${eye(o.eye)}<h2 class="h2 a2">${h}</h2>
+  <div class="nodes a3">${items.map((it,i)=>`<div class="node"><div class="dot">${it[2]||i+1}</div><b>${it[0]}</b>${it[1]?`<span>${it[1]}</span>`:''}</div>`).join('')}</div></div>`;
+const cards = (h, items, cols, o={}) => `<div class="c ${o.bg||''}">${eye(o.eye)}<h2 class="h2 a2">${h}</h2>
+  <div class="grid g${cols} a3">${items.map((it,i)=>`<div class="card"><div class="n">${String(i+1).padStart(2,'0')}</div><b>${it[0]}</b>${it[1]?`<span>${it[1]}</span>`:''}</div>`).join('')}</div></div>`;
+const myth = (m, t) => `<div class="myth"><div class="m"><div class="lab">Myth</div><h2 class="h2 a1">${m}</h2></div>
+  <div class="t"><div class="lab">Truth</div><h2 class="h2 a3">${t}</h2></div></div>`;
+const compare = (h, a, al, b, bl, o={}) => `<div class="c">${eye(o.eye)}<h2 class="h2 a1">${h}</h2><div class="cmp">
+  <div class="col a a2"><h3 class="h3">${a}</h3><ul>${al.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+  <div class="col b a4"><h3 class="h3">${b}</h3><ul>${bl.map(x=>`<li>${x}</li>`).join('')}</ul></div></div></div>`;
+const quote = (img, q, who, o={}) => `<div class="q ${o.bg||''}" style="${o.bg?'':'background:var(--ink)'}">
+  <div class="ph"><img src="${I(P[img]||img)}" alt=""></div>
+  <div class="tx"><div class="stars a1">★★★★★</div><blockquote class="a2">${q}</blockquote><cite class="a3">${who}</cite></div></div>`;
+const yes = (h, word='YES', o={}) => `<div class="c ${o.bg||'redbg'}">${eye(o.eye||'Type in the chat')}<h2 class="h2 a2" style="max-width:22ch">${h}</h2>
+  <div class="chat a4"><i>S</i><b>${word}</b><span class="caret"></span></div></div>`;
+const faq = q => `<div class="c faq creambg" style="position:absolute;inset:0">${B}<div class="tag a1">Questions I get asked</div><div class="q2 a2">${q}</div></div>`;
+
+
+/* demos */
+const meter = (h, s, at, label) => ({ html:`<div class="c">${eye('Where most business owners are')}<h2 class="h2 a1">${h}</h2>
+  <div class="meter a2"><div class="tag" style="left:0">${label}</div><div class="needle" style="left:0"></div><div class="track"></div>
+  <div class="lbls"><span>Googling grants</span><span>Funded and confident</span></div></div>${sub(s)}</div>`,
+  onMount(el,{reduced}){ const n=el.querySelector('.needle'),t=el.querySelector('.tag');
+    const go=()=>{n.style.left=at+'%';t.style.left=at+'%'}; reduced?go():setTimeout(go,350);} });
+const KILL = ['Applying to every grant you find','No registrations or certifications in place','No clear numbers to show','Telling your story without a point','Skipping pitch competitions','Applying once, then giving up','Waiting until you feel "ready"'];
+const killers = (focus) => ({ html:`<div class="c">${eye('The 7 mistakes that keep businesses unfunded')}<h2 class="h2 a1">${focus?'The biggest one is waiting until you feel ready.':'Most owners make at least three of these.'}</h2>
+  <div class="kill">${KILL.concat([''])
+   .map((k,i)=>k?`<div data-i="${i}"><i>${String(i+1).padStart(2,'0')}</i><b>${k}</b></div>`:'<div style="visibility:hidden"></div>').join('')}</div></div>`,
+  onMount(el,{reduced}){ const ds=[...el.querySelectorAll('.kill div[data-i]')];
+    if(focus){ds.forEach(d=>{d.classList.add('on'); if(d.dataset.i==='6') d.classList.add('big'); else d.style.opacity=.25}); return;}
+    ds.forEach((d,i)=>reduced?d.classList.add('on'):setTimeout(()=>d.classList.add('on'),400+i*260)); } });
+const triangle = (h, s, labels) => ({ html:`<div class="c">${eye(s)}<h2 class="h2 a1">${h}</h2>
+  <svg class="tri" viewBox="-60 -24 420 310"><line x1="150" y1="40" x2="40" y2="220"/><line x1="40" y1="220" x2="260" y2="220"/><line x1="260" y1="220" x2="150" y2="40"/>
+  <circle cx="150" cy="40" r="30"/><circle cx="40" cy="220" r="30"/><circle cx="260" cy="220" r="30"/>
+  <text x="150" y="46">1</text><text x="40" y="226">2</text><text x="260" y="226">3</text>
+  <text x="150" y="-4" style="font-size:14px">${labels[0]}</text><text x="40" y="276" style="font-size:14px">${labels[1]}</text><text x="260" y="276" style="font-size:14px">${labels[2]}</text>
+  <text class="ctr" x="150" y="168">Funded</text></svg></div>`,
+  onMount(el,{reduced}){ const t=el.querySelector('.tri'); reduced?t.classList.add('go'):setTimeout(()=>t.classList.add('go'),300);} });
+const thermo = { html:`<div class="c">${eye('Step 3 · Pitch your story and win')}<h2 class="h2 a1">How a winning pitch is built.</h2>
+  <div class="thermo a2"><div class="tube"><div class="fill"></div></div>
+  <div class="steps"><span>The problem</span><span>Why you</span><span>Your numbers</span><span>The ask</span><span>What the money does</span></div></div>
+  <p class="sub a3">Five parts. Under three minutes.</p></div>`,
+  onMount(el,{reduced}){ const f=el.querySelector('.fill'),ss=[...el.querySelectorAll('.steps span')];
+    if(reduced){f.style.width='100%';ss.forEach(s=>s.classList.add('on'));return;}
+    setTimeout(()=>f.style.width='100%',300); ss.forEach((s,i)=>setTimeout(()=>s.classList.add('on'),400+i*700)); } };
+const counter = (end, h, s, suffix='', prefix='') => ({ html:`<div class="c">${B}<div class="big a1">${prefix}<span class="num">0</span>${suffix}</div><h2 class="h3 a2" style="margin-top:3cqh">${h}</h2>${sub(s)}</div>`,
+  onMount(el,{reduced}){ const n=el.querySelector('.num'); if(reduced){n.textContent=end;return;}
+    const t0=performance.now(),d=1300;(function tick(now){const p=Math.min(1,(now-t0)/d),e=1-Math.pow(1-p,3);n.textContent=Math.round(end*e);if(p<1)requestAnimationFrame(tick)})(t0);} });
+const quiz = { html:`<div class="c">${B}${eye('Quick quiz before we start')}<h2 class="h2 a1" style="max-width:20ch">True or false: grants are only for nonprofits.</h2>
+  <div class="quiz a2"><div class="t">True</div><div class="f">False</div></div>
+  <p class="sub reveal">False. Corporations and foundations fund for-profit small businesses every year. I\'ll show you where.</p></div>`,
+  onMount(el,{reduced}){ const go=()=>{el.querySelector('.f').classList.add('on');el.querySelector('.t').classList.add('off');el.querySelector('.reveal').classList.add('in')}; reduced?go():setTimeout(go,1600);} };
+
+const PILLARS = [['Get funder-ready','So you qualify for the money'],['Find the money that fits you','Grants and pitch competitions you can win'],['Pitch your story and win','Clear story, real numbers, a confident ask']];
+
+DECK.load([
+/* ===== 1 HOOK ===== */
+full('h2', 'The <span class="r">Proven</span> Way To Win Grants &amp; Pitch Competitions For Your Business', 'Even if you\'ve never pitched before.', {eye:'Free live class · Saria Hawkins-Banda', size:'h3', pos:'50% 20%', rt:true}),
+quiz,
+full('h1', 'Grab a notebook and a pen.', 'You\'ll want to write tonight down.', {rt:true, pos:'50% 20%'}),
+split('h3', 'Hi, I\'m Saria.', 'Founder of Manifest Your Purpose and a Goldman Sachs 10,000 Small Businesses advisor. I\'ve raised over $400K without giving up a piece of my company.', {eye:'Your host tonight', pos:'50% 20%'}),
+yes('Where are you watching from tonight?', 'Dallas, TX', {bg:'creambg'}),
+text('Tonight is for women who are <span class="r">done</span> funding their business alone.', 'And ready to get paid to grow it.'),
+
+/* ===== 2 PAIN ===== */
+cards('Stop me if any of these sound familiar.', [['You\'re paying for everything yourself','Inventory, ads, events, out of your own pocket'],['You\'ve Googled "grants for women"','And got lost in a hundred closed deadlines'],['You applied once','And never heard back'],['Pitching scares you','You freeze, or talk for five minutes and never get to the numbers']], 2),
+full('stage', 'You see other women on stage holding the big check.', 'And wonder what they know that you don\'t.', {pos:'50% 30%'}),
+meter('Most owners are stuck on the left.', 'Lots of searching. No money in the bank.', 18, 'You are here'),
+split('h1', 'You don\'t need a loan or an investor.', 'You need a clear system for the money that\'s already out there.', {rev:true, size:'h3', pos:'50% 20%'}),
+yes('Type YES if one of these sounds like you.'),
+
+/* ===== 3 TEASE ===== */
+nodes('Tonight I\'ll walk you through the 3 steps.', PILLARS, {eye:'What you\'ll learn'}),
+killers(false),
+text('Stay to the end.', 'I\'m sharing my Funding Readiness Checklist in the WhatsApp group.', {eye:'Free gift', size:'h2'}),
+
+/* ===== 4 EXCITE ===== */
+full('check', 'Imagine holding that check.', 'Money you never have to pay back.', {rt:true, pos:'50% 40%'}),
+full('h4', 'Imagine walking into a pitch room calm, and knowing exactly what to say.', '', {rt:true, size:'h3', pos:'50% 20%'}),
+quote('room', 'You might have changed everything for me.', 'Money Moves Summit attendee'),
+
+/* ===== 5 SOCIAL PROOF ===== */
+full('h3', 'So why listen to me?', '', {eye:'My story', pos:'50% 20%'}),
+split('h1', 'At 21, I walked into corporate America with a degree and a dream.', 'I was good at my job. But I always felt there was something more for me.', {pos:'50% 20%'}),
+split('h4', 'So I built Manifest Your Purpose.', 'A stationery company for Black women, grown into a multi-six-figure business.', {rev:true, pos:'50% 20%'}),
+counter(400, 'raised in non-dilutive funding.', 'Grants and pitch prizes. I kept 100% of my company.', 'K+', '$'),
+split('gs', 'Goldman Sachs 10,000 Small Businesses.', 'I went in as a scholar. Now I go back as an advisor.', {eye:'Proof', pos:'50% 30%'}),
+split('stage', 'Then I built the Money Moves Summit.', 'Financial capital and social capital in one room. It sold out.', {rev:true, pos:'50% 30%'}),
+text('Featured in Essence, NBC Texas Today, WFAA and CBS Texas.', 'Sponsors include JCPenney, Chase and Charles Schwab.', {eye:'As seen in', size:'h2'}),
+quote('room', '10/10, no notes. The best summit I\'ve attended, corporate events included.', 'Money Moves Summit attendee'),
+quote('check', '[CONFIRM: client grant or pitch win, in her words]', 'Client name · business'),
+
+/* ===== 6 PARADIGM ===== */
+divider('Before we start', 'The <span style="color:var(--ink)">biggest</span> funding mistake women make'),
+compare('There are two ways to chase funding.', 'Guessing', ['Applying to every list online','Writing a new story every time','Hoping someone says yes'], 'A system', ['Funder-ready before you apply','Only the money that fits you','One clear pitch you can repeat']),
+killers(true),
+split('h2', 'Funders don\'t fund confusion.', 'They fund clarity, real numbers and a story they believe in.', {pos:'50% 20%'}),
+full('h4', 'And here\'s the truth: it\'s not your fault.', 'Nobody teaches this to small business owners.', {rt:true, pos:'50% 20%'}),
+myth('You need investors to grow.', 'Grants and pitch prizes let you keep 100%.'),
+triangle('Funding isn\'t luck.', 'It\'s three steps done in order', ['Ready','Find','Pitch']),
+
+/* ===== 7 TRAINING · STEP 1 ===== */
+divider('Step 1 of 3', 'Get funder-ready', 'So you qualify for the money you apply for.'),
+myth('Funders only read the application.', 'They check your business before they read a word.'),
+nodes('Three things funders check first.', [['Your setup','Registered, EIN, business bank account'],['Your paperwork','Certifications and a simple one-page plan'],['Your numbers','Sales, costs and what the money will do']], {eye:'Step 1 · Get funder-ready'}),
+compare('Same business. Two different first looks.', 'Not ready', ['Personal bank account','No clear numbers','No website or a confusing one'], 'Funder-ready', ['Business account and EIN','Numbers on one page','A clear story of who you serve']),
+split('h3', 'Being ready isn\'t about being big.', 'It\'s small, boring things done once, so every application gets easier.', {rev:true, eye:'Step 1 · Get funder-ready', size:'h3', pos:'50% 20%'}),
+yes('Type READY if you\'re setting this up this week.', 'READY'),
+
+/* ===== 8 TRAINING · STEP 2 ===== */
+divider('Step 2 of 3', 'Find the money that fits you', 'Stop chasing every list online.'),
+nodes('Where the money actually is.', [['Corporate grants','Brands that fund small businesses'],['Foundation grants','For women and Black-owned businesses'],['Pitch competitions','Cash prizes, often in one afternoon']], {eye:'Step 2 · Find the money'}),
+cards('The two-minute fit check.', [['Who it\'s for','Does your business match the rules?'],['What it funds','Does your ask match what they give?'],['The deadline','Do you have time to do it well?']], 3, {eye:'Step 2 · Find the money'}),
+myth('More applications means more money.', 'Fewer, better-fit applications win more.'),
+full('stage', 'Pitch competitions are the most overlooked money in small business.', 'Fewer applicants. Faster answers.', {pos:'50% 30%'}),
+yes('Type FIT if you\'ve applied for something that wasn\'t right for you.', 'FIT'),
+
+/* ===== 9 TRAINING · STEP 3 ===== */
+divider('Step 3 of 3', 'Pitch your story and win', 'Clear story. Real numbers. A confident ask.'),
+thermo,
+compare('Two women pitch the same business.', 'Forgettable', ['Starts with her life story','Never says the numbers','Ends with "so yeah"'], 'Funded', ['Starts with the problem she solves','Shows real numbers, even small ones','Ends with a clear ask']),
+split('check', 'Judges fund people they believe in.', 'Most of the work is how you tell it.', {pos:'50% 40%'}),
+myth('You have to be a natural on stage.', 'A pitch is a skill. You can practise it.'),
+yes('Type PITCH if you\'re ready to practise yours.', 'PITCH'),
+
+/* ===== 10 COMMITMENT ===== */
+triangle('Ready. Find. Pitch.', 'Here\'s the whole thing on one slide', ['Ready','Find','Pitch']),
+yes('Can you see why applying to everything never worked?', 'YES', {bg:'creambg'}),
+yes('Can you picture holding that check for your business?', 'YES', {bg:'creambg'}),
+
+/* ===== 11 TRANSITION ===== */
+split('h3', 'Now you know what to do.', 'The hard part is doing it alone, with nobody checking your work.', {pos:'50% 20%'}),
+nodes('From here you\'ve got three paths.', [['Do nothing','Keep paying for everything yourself'],['Figure it out alone','More searching, more guessing'],['Let me help you','A funding plan built for your business']], {eye:'Your choice'}),
+full('h1', 'Another year of watching other women hold the check.', 'That\'s what doing nothing actually costs.', {rt:true, pos:'50% 20%'}),
+yes('Can I show you how we could work on this together?'),
+
+/* ===== 12 OFFER ===== */
+divider('Introducing', 'Money Moves Coaching with Saria', 'My coaching for women who are ready to get funded.'),
+nodes('Three steps. Done with me.', [['Ready','We get your business funder-ready','1'],['Find','We build your list of money that fits','2'],['Pitch','We write and practise your winning pitch','3']], {eye:'How it works'}),
+cards('Step 1 · Ready', [['Your setup checked','Registrations, EIN, certifications'],['Your one-page plan','Clear and funder-friendly'],['Your numbers','On one page, ready to share']], 3, {eye:'Money Moves Coaching'}),
+cards('Step 2 · Find', [['Your funding list','Grants and pitch competitions that fit'],['Your calendar','Deadlines planned, not rushed'],['Your applications','Reviewed before you send them']], 3, {eye:'Money Moves Coaching'}),
+cards('Step 3 · Pitch', [['Your pitch written','Problem, why you, numbers, ask'],['Your practice','Live feedback until it feels easy'],['The hard questions','Answered like the CEO you are']], 3, {eye:'Money Moves Coaching'}),
+text('No loans. No investors. No guessing.', 'Just a business that\'s ready to get funded.', {bg:'redbg', size:'h2'}),
+
+/* ===== 13 PRICE (no number) ===== */
+split('h2', 'There\'s no price on a slide.', 'Every plan is built around your business. We talk about fit first.', {eye:'Investment', rev:true, pos:'50% 20%'}),
+
+/* ===== 14 BONUSES ===== */
+split('stage', 'Bonus: The Pitch Playbook.', 'The exact plays I used to raise over $300,000 in non-dilutive funding.', {eye:'Bonus #1', pos:'50% 30%'}),
+split('h4', 'Bonus: The Funding Readiness Checklist.', 'Everything funders check, on one page.', {eye:'Bonus #2', rev:true, pos:'50% 20%'}),
+{ html:`<div class="c">${eye('Everything you get')}<h2 class="h2 a1">Money Moves Coaching with Saria</h2><div class="stack a2">
+  ${[['Get funder-ready','Step 1'],['Find the money that fits you','Step 2'],['Pitch your story and win','Step 3']].map(r=>`<div class="row"><span>${r[0]}</span><em>${r[1]}</em></div>`).join('')}
+  ${[['The Pitch Playbook','Bonus'],['The Funding Readiness Checklist','Bonus']].map(r=>`<div class="row bn"><span>${r[0]}</span><em>${r[1]}</em></div>`).join('')}
+  </div></div>` },
+
+/* ===== 15 RISK REVERSAL ===== */
+full('h1', 'If it\'s not a fit, I\'ll tell you.', 'The call is free. No pressure, no obligation.', {rt:true, eye:'My promise', pos:'50% 20%'}),
+
+/* ===== 16 URGENCY + CTA ===== */
+text('I work closely with every woman, so I only take a few at a time.', 'When the spots are gone, the next ones open next month.', {eye:'Why now', size:'h2'}),
+{ html:`<div class="c redbg">${B.replace('class="brand"','class="brand" style="color:var(--ink)"')}<div class="eye a1">Your next step</div><h1 class="h1 a2" style="max-width:18ch">Book your free call with me</h1>
+  <p class="sub a3">We look at your business and the money that fits it.</p><div class="btn a4">See if you qualify</div></div>` },
+cards('What happens on the call.', [['We look at your business','Where it is and where you want it'],['We find your best funding','The grants and competitions that fit'],['You leave with a plan','Whether we work together or not']], 3, {eye:'Your free call'}),
+faq('Do I need to be registered first?'),
+faq('What if I\'ve never written a grant?'),
+faq('Is this only for Black-owned businesses?'),
+faq('What if my business is still small?'),
+faq('Is there an application?'),
+full('h2', 'You don\'t need more luck. You need a <span class="r">better plan.</span>', 'Click below and see if you qualify.', {rt:true, size:'h2', pos:'50% 20%'}),
+{ html:`<div class="c">${B}<div class="eye a1">Thanks for staying</div><h2 class="h2 a2">Don\'t forget your free gift.</h2>
+  <p class="sub a3">Your Funding Readiness Checklist is waiting in the WhatsApp group.</p></div>` }
+]);
+</script>
+</body>
+</html>

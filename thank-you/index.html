@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>You&rsquo;re almost there · Money Moves Masterclass</title>
+<meta name="description" content="Complete the steps below to confirm your seat.">
+<meta name="robots" content="noindex">
+  <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
+<script>try{if("scrollRestoration" in history)history.scrollRestoration="manual"}catch(e){}addEventListener("load",function(){if(!location.hash)scrollTo(0,0)});</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/funnel.css?v=1">
+<style>
+  @font-face{font-family:"SFD";src:url(../assets/fonts/sfpro-bold.woff2) format("woff2");font-weight:700;font-display:swap}
+  @font-face{font-family:"Inter";src:url(../assets/fonts/inter-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
+  :root{
+    --bg:#f8f5ea;--surface:#ffffff;--surface-2:#f8f5ea;
+    --line:rgba(14,13,13,.10);--line-soft:rgba(14,13,13,.06);
+    --text:#0e0d0d;--text-2:#4a4240;--text-3:#7a6e69;
+    --accent:#4f5d23;--accent-2:#a3c93a;--accent-ink:#ffffff;
+    --accent-soft:rgba(79,93,35,.10);--accent-glow:rgba(79,93,35,.28);
+    --radius:22px;--maxw:1080px;
+    --font:Poppins,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  h1,h2,h3{font-family:"Playfair Display",Georgia,serif}:root{--display:"Playfair Display",Georgia,serif;--sans:Poppins,system-ui,sans-serif}body{font-family:Poppins,system-ui,sans-serif}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);
+    -webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .narrow{max-width:860px}
+  h1,h2,h3{margin:0;letter-spacing:-.02em}
+  h1{font-size:clamp(32px,5vw,50px);line-height:1.07;font-weight:800}
+  .eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--accent);margin:0 0 16px}
+  .lead{font-size:clamp(17px,2vw,20px);color:var(--text-2);margin:18px 0 0}
+
+  /* top = branding only, NO bar */
+  .topbrand{max-width:var(--maxw);margin:0 auto;padding:26px 24px}
+  .brand{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:18px}
+  .brand .mark{width:26px;height:26px;color:var(--accent)}
+
+  .hero{text-align:center;padding:40px 0 20px;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(120% 70% at 50% -20%, var(--accent-soft), transparent 60%)}
+  .hero .wrap{position:relative}
+
+  /* ---- PREPARATION VIDEO (faux player) ---- */
+  .prep{max-width:820px;margin:34px auto 4px;text-align:center}
+  .prep .eyebrow{margin-bottom:12px}
+  .prep-line{font-size:clamp(15px,1.6vw,17px);color:var(--text-2);margin:0 0 24px}
+  .prep-player{position:relative;aspect-ratio:16/9;border-radius:20px;overflow:hidden;
+    border:1px solid var(--line);background:#3f4a1c;cursor:pointer}
+  .prep-player img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .prep-player::after{display:none}
+  .prep-play{position:absolute;top:80%;left:25%;transform:translate(-50%,-50%);z-index:2;
+    width:76px;height:76px;border-radius:50%;display:grid;place-items:center;
+    background:rgba(255,255,255,.95);color:#0b0c0e;
+    transition:transform .3s ease,background .3s ease}
+  .prep-play svg{width:30px;height:30px;margin-left:4px}
+  .prep-player:hover .prep-play{transform:translate(-50%,-50%) scale(1.06);background:#fff}
+
+  /* ---- STEPS (centre-aligned) ---- */
+  .steps{max-width:860px;margin:52px auto 0;display:flex;flex-direction:column;gap:24px}
+  .step{background:var(--surface);border:1px solid var(--line);border-radius:20px;
+    padding:34px 30px 36px;position:relative;text-align:center}
+  .step-h{display:flex;flex-direction:column;align-items:center;gap:14px;margin-bottom:14px}
+  .step-n{flex:none;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;
+    background:var(--accent-soft);color:var(--accent);font-weight:800;font-size:18px;
+    border:1px solid color-mix(in srgb,var(--accent) 40%,transparent)}
+  .step-h h3{font-size:21px;font-weight:700;max-width:30ch}
+  .step p.sub{margin:0 auto 22px;color:var(--text-2);font-size:16px;max-width:52ch}
+  .step .pad{padding-left:0;display:flex;flex-direction:column;align-items:center}
+
+  /* ---- calendar buttons (with brand logos) ---- */
+  .cal-btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+  .cal-btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:15px;
+    color:var(--text);background:var(--surface-2);border:1px solid var(--line);
+    border-radius:11px;padding:12px 18px;transition:border-color .2s ease,transform .2s ease}
+  .cal-btn:hover{border-color:color-mix(in srgb,var(--accent) 45%,var(--line));transform:translateY(-2px)}
+  .cal-btn svg{width:20px;height:20px;flex:none}
+
+  /* =====================================================================
+     GMAIL MOCKUP (Step 2), mimics real Gmail inbox
+     ===================================================================== */
+  .gmail{border-radius:14px;overflow:hidden;background:#fff;color:#202124;
+    border:1px solid rgba(0,0,0,.12);box-shadow:0 24px 60px -28px rgba(0,0,0,.7);
+    font-size:14px;line-height:1.3;text-align:left;width:100%;margin:0 auto}
+  .gm-top{display:flex;align-items:center;gap:16px;padding:9px 16px;
+    border-bottom:1px solid #eceff1;background:#fff}
+  .gm-burger{width:20px;height:20px;color:#5f6368;flex:none}
+  .gm-logo{display:flex;align-items:center;gap:8px;flex:none}
+  .gm-logo svg{width:34px;height:26px}
+  .gm-logo span{font-size:21px;color:#5f6368;font-weight:400;letter-spacing:-.01em}
+  .gm-search{flex:1;max-width:560px;display:flex;align-items:center;gap:12px;
+    background:#eaf1fb;border-radius:9px;padding:9px 16px;color:#5f6368}
+  .gm-search svg{width:18px;height:18px;flex:none}
+  .gm-search .ph{flex:1;font-size:15px}
+  .gm-top-r{display:flex;align-items:center;gap:14px;margin-left:auto;color:#5f6368}
+  .gm-top-r svg{width:20px;height:20px}
+  .gm-ava{width:30px;height:30px;border-radius:50%;background:#1a73e8;color:#fff;
+    display:grid;place-items:center;font-weight:600;font-size:14px}
+  .gm-body{display:flex;min-height:340px}
+  /* left rail */
+  .gm-rail{width:210px;flex:none;padding:10px 8px 10px 12px;background:#fff}
+  .gm-compose{display:inline-flex;align-items:center;gap:12px;background:#c2e7ff;color:#001d35;
+    font-weight:500;font-size:15px;border-radius:16px;padding:12px 22px 12px 16px;margin:4px 0 14px}
+  .gm-compose svg{width:20px;height:20px}
+  .gm-nav div{display:flex;align-items:center;gap:16px;padding:7px 12px;border-radius:0 16px 16px 0;
+    color:#202124;font-size:14px;font-weight:500}
+  .gm-nav div svg{width:18px;height:18px;color:#5f6368;flex:none}
+  .gm-nav div.on{background:#d3e3fd;color:#041e49;font-weight:700}
+  .gm-nav div.on svg{color:#041e49}
+  .gm-nav div .ct{margin-left:auto;font-size:13px;color:#5f6368}
+  .gm-nav div.on .ct{color:#041e49}
+  /* list */
+  .gm-main{flex:1;border-left:1px solid #f1f3f4;background:#fff;min-width:0}
+  .gm-tools{display:flex;align-items:center;gap:18px;padding:8px 18px;color:#5f6368;
+    border-bottom:1px solid #f1f3f4}
+  .gm-tools .cb{width:16px;height:16px;border:2px solid #5f6368;border-radius:3px}
+  .gm-tools svg{width:18px;height:18px}
+  .gm-tabs{display:flex;align-items:center;gap:8px;padding:0 8px;border-bottom:1px solid #f1f3f4}
+  .gm-tab{display:flex;align-items:center;gap:10px;padding:12px 14px;font-size:14px;color:#5f6368;
+    font-weight:600;border-bottom:3px solid transparent}
+  .gm-tab.on{color:#1a73e8;border-bottom-color:#1a73e8}
+  .gm-tab svg{width:18px;height:18px}
+  .gm-row{display:grid;grid-template-columns:20px 20px 40px 1fr auto;align-items:center;gap:14px;
+    padding:11px 18px;border-bottom:1px solid #f5f5f5;cursor:pointer}
+  .gm-row .cb{width:16px;height:16px;border:2px solid #bdc1c6;border-radius:3px}
+  .gm-row .star{width:18px;height:18px;color:#dadce0}
+  .gm-av{width:36px;height:36px;border-radius:50%;color:#fff;display:grid;place-items:center;
+    font-weight:600;font-size:15px;overflow:hidden}
+  .gm-av img{width:100%;height:100%;object-fit:cover}
+  .gm-txt{min-width:0;display:flex;flex-direction:column;gap:2px;overflow:hidden}
+  .gm-sender{font-size:14px;color:#5f6368}
+  .gm-line{font-size:13.5px;color:#5f6368;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .gm-line b{color:#202124}
+  .gm-time{font-size:12.5px;color:#5f6368;white-space:nowrap}
+  .gm-blur{filter:blur(3.5px);opacity:.85;user-select:none}
+  /* the one real email, unread */
+  .gm-hot{background:#fff;box-shadow:inset 4px 0 0 #1a73e8;border-bottom:1px solid #eee}
+  .gm-hot .gm-sender{color:#202124;font-weight:700}
+  .gm-hot .gm-line b{font-weight:700}
+  .gm-hot .gm-time{color:#1a73e8;font-weight:700}
+  .gm-hot .star{color:#f4b400}
+
+  /* =====================================================================
+     WHATSAPP JOIN (Step 3), exact WhatsApp branding
+     ===================================================================== */
+  .wa-btn{display:inline-flex;align-items:center;gap:12px;background:#25D366;color:#fff;
+    font-weight:700;font-size:16px;border-radius:12px;padding:15px 26px;
+    box-shadow:0 12px 30px -10px rgba(37,211,102,.5);transition:transform .2s ease,filter .2s ease}
+  .wa-btn:hover{transform:translateY(-2px);filter:brightness(1.04)}
+  .wa-btn svg{width:24px;height:24px}
+  .wa-note{display:flex;align-items:center;justify-content:center;gap:9px;margin-top:16px;
+    font-size:14px;color:var(--text-2);text-align:left}
+  .wa-note svg{width:16px;height:16px;color:#25D366;flex:none}
+
+  /* ---- WHILE YOU WAIT videos (2-up, centred below) ---- */
+  .section{padding:88px 0;position:relative}
+  .tint{background:
+    linear-gradient(180deg, transparent, rgba(255,255,255,.022) 22%, rgba(255,255,255,.022) 78%, transparent),
+    radial-gradient(80% 120% at 50% 0%, rgba(255,255,255,.03), transparent 60%)}
+  h2{font-size:clamp(26px,4vw,40px);line-height:1.1;font-weight:800}
+  .sec-head{text-align:center;max-width:720px;margin:0 auto 60px}
+  .vgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;max-width:920px;margin:0 auto}
+  .vcard{text-align:center}
+  .vframe{aspect-ratio:16/9;border-radius:14px;overflow:hidden;position:relative;
+    background:linear-gradient(160deg,#0f1216,#0a0b0d);border:1px solid var(--line);
+    display:grid;place-items:center}
+  .vplay{width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,.94);
+    color:#0b0c0e;display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+  .vname{font-size:18px;font-weight:700;margin:20px 0 4px}
+  .vdesc{font-size:14.5px;color:var(--text-2);margin:0 auto;max-width:34ch}
+
+  /* footer (branding-only banner), softly introduced, no hard line */
+  .foot{position:relative;background:linear-gradient(180deg, transparent, var(--surface) 46%);
+    display:flex;align-items:center;justify-content:center;padding:40px 0 24px}
+  .foot::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;
+    background:linear-gradient(90deg,transparent,var(--line-soft),transparent)}
+  .foot .brand{font-size:17px}.foot .mark{width:24px;height:24px}
+
+  @media(max-width:820px){
+    .gm-rail{display:none}
+    .gm-main{border-left:none}
+    .vgrid{grid-template-columns:1fr}
+    .gm-search{max-width:none}
+  }
+  @media(max-width:560px){
+    .step{padding:26px 20px}.step .pad{padding-left:0}
+    .gm-row{grid-template-columns:36px 1fr auto;gap:10px}
+    .gm-row .cb,.gm-row .star{display:none}
+    .gm-logo span{display:none}
+  }
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{transition:none !important;animation:none !important}
+  }
+
+  
+  .shot{aspect-ratio:437/630!important}
+  .shot img{width:100%;height:100%;object-fit:cover;object-position:top}
+  .vquote{display:flex;align-items:center;justify-content:center;padding:28px 32px;text-align:left;background:linear-gradient(160deg,var(--surface-2),var(--surface))!important}
+  .vquote p{margin:0;font:700 clamp(17px,2vw,21px)/1.4 SFD,Inter,sans-serif;color:var(--text)}
+  .wall{columns:3 280px;column-gap:16px}
+  .wq{break-inside:avoid;margin:0 0 16px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 22px 18px}
+  .wq blockquote{margin:0;font-size:16px;line-height:1.55;color:var(--text)}
+  .wq figcaption{margin-top:12px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3)}
+
+  /* matches the register page: light cream, same cards and type */
+  body{background:var(--bg)!important;color:var(--text)}
+  h1,h2,h3{font-family:var(--display)!important;font-weight:700!important;letter-spacing:-.025em}
+  .tint{background:linear-gradient(180deg,var(--bg),#eef0dc)!important}
+  .step,.prep,.typeform-shell{box-shadow:0 30px 60px -40px rgba(45,52,20,.25)}
+  .step{background:#fff!important;border:1px solid var(--line)!important;border-radius:24px!important}
+  .step-n{background:var(--accent)!important;color:#fff!important}
+  .cal-btn{background:#fff!important;color:var(--text)!important;border:1px solid var(--line)!important;border-radius:999px!important}
+  .vplay{background:#fff!important;color:var(--accent)!important;box-shadow:0 10px 30px rgba(79,93,35,.25)!important}
+  .prep-play{color:var(--accent)!important}
+  .vquote{background:#fff!important;border:1px solid var(--line)}
+  .wq{background:#fff!important}
+  .replay-frame{border-radius:24px!important;box-shadow:0 40px 80px -40px rgba(45,52,20,.45)}
+  .pill-eb{margin-bottom:16px}
+
+  /* same look as the register page: EB Garamond headings, Josefin Sans text, white header, cream bands */
+  :root{--display:"EB Garamond",Garamond,Georgia,serif;--sans:"Josefin Sans",-apple-system,Helvetica,Arial,sans-serif;--font:"Josefin Sans",-apple-system,Helvetica,Arial,sans-serif;--nude:#e9ead6}
+  body{background:#fff!important;font-family:var(--sans)!important}
+  h1,h2,h3{font-family:var(--display)!important;font-weight:500!important;letter-spacing:-1px!important;color:var(--ink)}
+  h1 em,h2 em{font-style:italic;font-weight:600}
+  .tint{background:var(--cream,#f8f5ea)!important}
+  .jd-head{background:#fff!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;border:0!important;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+  .jd-head .row{height:100px;max-width:940px}
+  .jd-head .logo{font:500 34px/1 var(--display);letter-spacing:-.5px}
+  .jd-pill{display:inline-flex;align-items:center;border-radius:50px;background:#4f5d23;color:#fff;font:500 16px/1 var(--sans);text-transform:uppercase;padding:15px 26px 12px;box-shadow:0 10px 11px rgba(0,0,0,.11)}
+  .cta{background:none!important;border:0!important;padding:0!important}
+  .cta span{background:#4f5d23!important;font:500 18px/1 var(--sans)!important;letter-spacing:0!important;padding:16px 30px 13px!important;box-shadow:0 10px 11px rgba(0,0,0,.11)!important}
+  .cta span::after{display:none!important}
+  .step-n{font-family:var(--sans)!important}
+  .jd-foot{background:#f8f5ea;text-align:center;padding:22px 20px 26px;color:#000}
+  .jd-foot p{margin:0 auto;max-width:900px}
+  .jd-foot .c1{margin-bottom:14px;font:400 16px/1.4 var(--sans)}
+  .jd-foot .c2{font:300 12px/1.45 var(--sans)}
+  @media(max-width:640px){.jd-head .row{height:64px}.jd-head .logo{font-size:28px}.jd-pill{font-size:13px;padding:12px 16px 10px}}
+  .vquote p{font-family:var(--display)!important;font-weight:500!important;font-size:clamp(19px,2.2vw,23px)!important;letter-spacing:-.3px}
+</style>
+</head>
+<body>
+
+<header class="jd-head">
+  <div class="wrap row">
+    <span class="logo">Manifest Your Purpose<i>.</i></span>
+    <span class="jd-pill">Seat saved</span>
+  </div>
+</header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap narrow">
+      <h1>Your seat is almost saved</h1>
+      <p class="lead">Complete the following steps below.</p>
+    </div>
+  </section>
+
+  <!-- ============ PREPARATION VIDEO ============ -->
+  <section class="wrap">
+    <div class="prep">
+      <span class="eyebrow">Watch this first</span>
+      <p class="prep-line">A two-minute message from Saria so you get the most out of the class.</p>
+      
+      <div class="prep-player" role="img" aria-label="Preparation video">
+        <img src="../assets/img/prep-thumb.jpg?v=2" alt="" onerror="this.style.display='none'">
+        <span class="prep-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STEPS ============ -->
+  <div class="wrap">
+    <div class="steps">
+
+      <!-- STEP 1 · calendar -->
+      <div class="step">
+        <div class="step-h">
+          <span class="step-n">1</span>
+          <h3>Put it in your calendar</h3>
+        </div>
+        <div class="pad">
+          <p class="sub">Add the class now so nothing bumps it. Pick the calendar you use.</p>
+          <div class="cal-btns">
+            <a class="cal-btn" id="calGoogle" href="#" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M18.316 5.684H24v12.632h-5.684z"/><path fill="#34A853" d="M5.684 24h12.632v-5.684H5.684z"/><path fill="#FBBC05" d="M0 5.684h5.684v12.632H0z"/><path fill="#EA4335" d="M18.316 5.684V0H1.895A1.894 1.894 0 0 0 0 1.895v3.789h5.684V5.684z"/><path fill="#188038" d="M18.316 18.316H5.684V24h12.632z" opacity="0"/><path fill="#4285F4" d="M18.316 18.316V24H24v-5.684z" opacity="0"/><path fill="#1967D2" d="M18.316 5.684H5.684v12.632h12.632z"/><path fill="#fff" d="M9.6 14.9c-.53 0-.98-.15-1.35-.46-.36-.31-.6-.72-.72-1.24l1.09-.45c.07.28.19.5.37.66.18.16.4.24.66.24.27 0 .48-.07.65-.22.16-.15.25-.34.25-.57 0-.24-.09-.43-.28-.58-.18-.15-.42-.22-.72-.22h-.51V11h.46c.26 0 .48-.07.65-.21.17-.14.26-.33.26-.57 0-.21-.08-.38-.23-.5-.15-.13-.35-.19-.58-.19-.23 0-.42.06-.56.19-.14.12-.24.28-.31.46l-1.08-.45c.11-.31.32-.59.62-.83.3-.24.69-.36 1.16-.36.35 0 .66.07.94.2.28.14.5.32.66.56.16.24.24.51.24.8 0 .3-.07.55-.22.76-.14.2-.32.36-.53.47v.06c.28.12.5.3.68.55.17.24.26.53.26.87 0 .34-.09.64-.26.91-.17.26-.41.47-.71.62-.3.15-.65.23-1.03.23z"/><path fill="#fff" d="M13.9 9.9l-1.19.86-.6-.9 2.14-1.54h.82v7.34H13.9z"/></svg>
+              Google Calendar
+            </a>
+            <a class="cal-btn" id="calOutlook" href="#" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="#0078D4" aria-hidden="true"><path d="M7.88 12.04q0 .45-.11.87-.1.41-.33.74-.22.33-.58.52-.37.2-.87.2t-.85-.2q-.35-.21-.57-.55-.22-.33-.33-.75-.1-.42-.1-.86t.1-.87q.1-.43.34-.76.22-.34.59-.54.36-.2.87-.2t.86.2q.35.21.57.55.22.34.31.77.1.43.1.88zM24 12v9.38q0 .46-.33.8-.33.32-.8.32H7.13q-.46 0-.8-.33-.32-.33-.32-.8V18H1q-.41 0-.7-.3-.3-.29-.3-.7V7q0-.41.3-.7Q.58 6 1 6h6.5V2.55q0-.44.3-.75.3-.3.75-.3h12.9q.44 0 .75.3.3.3.3.75V10.85l1.24.72h.01q.1.07.18.18.07.12.07.25zm-6-8.25v3h3v-3zm0 4.5v3h3v-3zm0 4.5v1.83l3.05-1.83zm-5.25-9v3h3.75v-3zm0 4.5v3h3.75v-3zm0 4.5v2.03l2.41 1.5 1.34-.8v-2.73zM9 3.75V6h2l.13.01.12.04v-2.3zM5.98 15.98q.9 0 1.6-.3.7-.32 1.19-.86.48-.55.73-1.28.25-.74.25-1.61 0-.83-.25-1.55-.24-.71-.71-1.24t-1.15-.83q-.68-.3-1.55-.3-.92 0-1.64.3-.71.3-1.2.85-.5.54-.75 1.3-.25.74-.25 1.63 0 .85.26 1.56.26.72.74 1.23.48.52 1.17.81.69.3 1.56.3zM7.5 21h12.39L12 16.08V17q0 .41-.3.7-.29.3-.7.3H7.5zm15-.13v-7.24l-5.9 3.54Z"/></svg>
+              Outlook
+            </a>
+            <a class="cal-btn" id="calApple" href="#" download="webinar.ics">
+              <svg viewBox="0 0 24 24" fill="#111" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+              Apple Calendar
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2 · reply YES (Gmail mockup, no sub-headline) -->
+      <div class="step">
+        <div class="step-h">
+          <span class="step-n">2</span>
+          <h3>Reply YES to the email we just sent you.</h3>
+        </div>
+        <div class="pad">
+          <!-- GMAIL MOCKUP -->
+          <div class="gmail" role="img" aria-label="Gmail inbox: one unread email from Saria Hawkins-Banda titled 'Action required: Reply yes to this email to confirm your spot'. Every other email is blurred.">
+            <!-- top bar -->
+            <div class="gm-top">
+              <svg class="gm-burger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+              <span class="gm-logo">
+                <svg viewBox="0 0 52 40" aria-hidden="true">
+                  <path fill="#4285f4" d="M3.5 40h9V19L0 9.5V36.5A3.5 3.5 0 0 0 3.5 40z"/>
+                  <path fill="#34a853" d="M39.5 40h9a3.5 3.5 0 0 0 3.5-3.5V9.5L39.5 19z"/>
+                  <path fill="#fbbc04" d="M39.5 3.5V19L52 9.5V5.25c0-3.9-4.45-6.1-7.6-3.75z"/>
+                  <path fill="#ea4335" d="M12.5 19V3.5L26 13.6 39.5 3.5V19L26 29z"/>
+                  <path fill="#c5221f" d="M0 5.25V9.5L12.5 19V3.5L7.6 1.5C4.45-.85 0 1.35 0 5.25z"/>
+                </svg>
+                <span>Gmail</span>
+              </span>
+              <div class="gm-search">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+                <span class="ph">Search mail</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 5h18M6 12h12M10 19h4"/></svg>
+              </div>
+              <div class="gm-top-r">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 5 .2c0 1.5-2 1.8-2 3.3M12 17h.01"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="5" cy="5" r="1.6"/><circle cx="12" cy="5" r="1.6"/><circle cx="19" cy="5" r="1.6"/><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/><circle cx="5" cy="19" r="1.6"/><circle cx="12" cy="19" r="1.6"/><circle cx="19" cy="19" r="1.6"/></svg>
+                <span class="gm-ava">J</span>
+              </div>
+            </div>
+            <!-- body -->
+            <div class="gm-body">
+              <!-- left rail -->
+              <div class="gm-rail">
+                <span class="gm-compose">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>
+                  Compose
+                </span>
+                <div class="gm-nav">
+                  <div class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12l2-7h14l2 7v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M3 12h5l1.5 2.5h5L16 12h5"/></svg> Inbox <span class="ct">1</span></div>
+                  <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.7L12 16.3 6.8 19l1-5.7L3.5 9.2l5.9-.9z"/></svg> Starred</div>
+                  <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg> Snoozed</div>
+                  <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4l18 8-18 8 4-8z"/></svg> Sent</div>
+                  <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5h16v14H4z"/><path d="M4 5l8 7 8-7"/></svg> Drafts</div>
+                </div>
+              </div>
+              <!-- list -->
+              <div class="gm-main">
+                <div class="gm-tabs">
+                  <div class="gm-tab on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12l2-7h14l2 7v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg> Primary</div>
+                  <div class="gm-tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="9" r="3"/><path d="M3 20a6 6 0 0 1 12 0M16 7a3 3 0 0 1 0 6M14 20a6 6 0 0 1 7-5.7"/></svg> Promotions</div>
+                  <div class="gm-tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg> Social</div>
+                </div>
+                <!-- blurred emails ABOVE -->
+                <div class="gm-row gm-blur">
+                  <span class="cb"></span>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.7L12 16.3 6.8 19l1-5.7L3.5 9.2l5.9-.9z"/></svg>
+                  <span class="gm-av" style="background:#635bff">S</span>
+                  <span class="gm-txt"><span class="gm-sender">Stripe</span><span class="gm-line"><b>Your payout is on the way</b>, $2,480.00 is heading to your bank</span></span>
+                  <span class="gm-time">9:14 AM</span>
+                </div>
+                <div class="gm-row gm-blur">
+                  <span class="cb"></span>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.7L12 16.3 6.8 19l1-5.7L3.5 9.2l5.9-.9z"/></svg>
+                  <span class="gm-av" style="background:#0a66c2">in</span>
+                  <span class="gm-txt"><span class="gm-sender">LinkedIn</span><span class="gm-line"><b>You appeared in 11 searches</b>, see who's looking at your profile</span></span>
+                  <span class="gm-time">8:52 AM</span>
+                </div>
+                <!-- THE REAL EMAIL -->
+                <div class="gm-row gm-hot">
+                  <span class="cb"></span>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.7L12 16.3 6.8 19l1-5.7L3.5 9.2l5.9-.9z"/></svg>
+                  <span class="gm-av" style="background:#0b57d0"><img src="../assets/img/deck/s-close.jpg" alt="" onerror="this.style.display='none';this.parentNode.textContent='S'"></span>
+                  <span class="gm-txt">
+                    <span class="gm-sender">Saria Hawkins-Banda</span>
+                    <span class="gm-line"><b>Action required: Reply yes to this email to confirm your spot</b>, reply YES and your seat is locked in</span>
+                  </span>
+                  <span class="gm-time">9:31 AM</span>
+                </div>
+                <!-- blurred emails BELOW -->
+                <div class="gm-row gm-blur">
+                  <span class="cb"></span>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.7L12 16.3 6.8 19l1-5.7L3.5 9.2l5.9-.9z"/></svg>
+                  <span class="gm-av" style="background:#3a3f47">N</span>
+                  <span class="gm-txt"><span class="gm-sender">Notion</span><span class="gm-line"><b>Your weekly digest is ready</b>, 4 updates across your workspace</span></span>
+                  <span class="gm-time">Yesterday</span>
+                </div>
+                <div class="gm-row gm-blur">
+                  <span class="cb"></span>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.7L12 16.3 6.8 19l1-5.7L3.5 9.2l5.9-.9z"/></svg>
+                  <span class="gm-av" style="background:#ff9900">a</span>
+                  <span class="gm-txt"><span class="gm-sender">Amazon</span><span class="gm-line"><b>Your order has shipped</b>, arriving tomorrow by 9 PM</span></span>
+                  <span class="gm-time">Yesterday</span>
+                </div>
+                <div class="gm-row gm-blur">
+                  <span class="cb"></span>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.7L12 16.3 6.8 19l1-5.7L3.5 9.2l5.9-.9z"/></svg>
+                  <span class="gm-av" style="background:#1db954">G</span>
+                  <span class="gm-txt"><span class="gm-sender">Google Calendar</span><span class="gm-line"><b>Reminder: 3 events tomorrow</b>, your day at a glance</span></span>
+                  <span class="gm-time">Yesterday</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3 · WhatsApp group -->
+      <div class="step">
+        <div class="step-h">
+          <span class="step-n">3</span>
+          <h3>Join the WhatsApp group:</h3>
+        </div>
+        <div class="pad">
+          <p class="sub">This is where every announcement, reminder and live link goes out, so you don't miss it.</p>
+          <a class="wa-btn" href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16.04 4C9.93 4 5 8.93 5 15.03c0 2.13.6 4.1 1.62 5.79L5 28l7.36-1.93a11 11 0 0 0 3.68.63h.01c6.1 0 11.04-4.94 11.04-11.04C27.09 8.93 22.15 4 16.04 4Zm0 19.9h-.01a9.1 9.1 0 0 1-3.47-.68l-.25-.15-3.79.99 1.01-3.69-.16-.26a9.05 9.05 0 0 1-1.39-4.83c0-5.01 4.08-9.09 9.1-9.09 2.43 0 4.71.95 6.43 2.67a9.02 9.02 0 0 1 2.66 6.43c0 5.01-4.08 9.09-9.09 9.09Zm4.98-6.8c-.27-.14-1.61-.79-1.86-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.35-1.61-1.51-1.88-.16-.27-.02-.42.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.83-2.01-.22-.53-.44-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.29s.98 2.66 1.12 2.84c.14.18 1.93 2.95 4.68 4.14.65.28 1.16.45 1.56.58.66.21 1.25.18 1.72.11.53-.08 1.61-.66 1.84-1.29.23-.63.23-1.18.16-1.29-.07-.11-.25-.18-.52-.32Z"/></svg>
+            Join the WhatsApp group
+          </a>
+          <div class="wa-note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-7"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7S12 3 9 3a2.5 2.5 0 0 0 0 5zM12 7s0-4 3-4a2.5 2.5 0 0 1 0 5z"/></svg>
+            Your free Funding Readiness Checklist is delivered inside the group, not by email.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============ WHILE YOU WAIT ============ -->
+  <section class="section tint">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow" style="color:var(--accent)">While you wait</span>
+        <h2>What women say after a room with Saria</h2>
+      </div>
+      <div class="vgrid">
+        <article class="vcard">
+          <div class="vframe vquote"><p>&ldquo;You might have changed everything for me.&rdquo;</p></div>
+          <div class="vname">Money Moves Summit attendee</div>
+          <p class="vdesc">Sold-out Money Moves Summit, Irving TX</p>
+        </article>
+        <article class="vcard">
+          <div class="vframe vquote"><p>&ldquo;10/10, no notes. The best summit I&rsquo;ve attended, corporate events included.&rdquo;</p></div>
+          <div class="vname">Money Moves Summit attendee</div>
+          <p class="vdesc">Sold-out Money Moves Summit, Irving TX</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Client wins</span>
+        <h2>Real funding wins from Saria&rsquo;s clients</h2>
+      </div>
+      <div class="wall"><figure class="wq"><blockquote>[CONFIRM: client grant or pitch-competition win, in her words]</blockquote><figcaption>Client name, business</figcaption></figure><figure class="wq"><blockquote>[CONFIRM: client grant or pitch-competition win, in her words]</blockquote><figcaption>Client name, business</figcaption></figure><figure class="wq"><blockquote>[CONFIRM: client grant or pitch-competition win, in her words]</blockquote><figcaption>Client name, business</figcaption></figure></div>
+    </div>
+  </section>
+
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="jd-foot"><p class="c1">Copyright &copy; 2026 Manifest Your Purpose, LLC | All Rights Reserved | Privacy Policy | Terms Of Service</p><p class="c2">This website is operated by Manifest Your Purpose, LLC. The material provided is for educational and informational purposes only. No guarantees are made regarding your results. Your results may vary and depend on factors beyond our control. Past results don&rsquo;t guarantee future outcomes.</p></footer>
+
+<script>
+(function(){
+  // build add-to-calendar links (swap the event details per prospect)
+  var title="Money Moves Masterclass with Saria (Free Live Class)";
+  var details="Your free live masterclass. Join link is in the WhatsApp group.";
+  var start=new Date("2026-11-12T19:00:00-06:00");
+  if(isNaN(start.getTime())) start=new Date(Date.now()+3*86400000);
+  while(start.getTime()<Date.now()) start=new Date(start.getTime()+7*86400000);
+  var end=new Date(start.getTime()+90*60000);
+  function z(d){function p(n){return(n<10?"0":"")+n;}
+    return d.getUTCFullYear()+p(d.getUTCMonth()+1)+p(d.getUTCDate())+"T"+p(d.getUTCHours())+p(d.getUTCMinutes())+"00Z";}
+  var g=document.getElementById("calGoogle");
+  if(g)g.href="https://calendar.google.com/calendar/render?action=TEMPLATE&text="+encodeURIComponent(title)+"&details="+encodeURIComponent(details)+"&dates="+z(start)+"/"+z(end);
+  var o=document.getElementById("calOutlook");
+  if(o)o.href="https://outlook.office.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&subject="+encodeURIComponent(title)+"&body="+encodeURIComponent(details)+"&startdt="+start.toISOString()+"&enddt="+end.toISOString();
+  var a=document.getElementById("calApple");
+  if(a){var ics=["BEGIN:VCALENDAR","VERSION:2.0","BEGIN:VEVENT","DTSTART:"+z(start),"DTEND:"+z(end),"SUMMARY:"+title,"DESCRIPTION:"+details,"END:VEVENT","END:VCALENDAR"].join("\r\n");
+    a.href="data:text/calendar;charset=utf-8,"+encodeURIComponent(ics);}
+})();
+</script>
+</body>
+</html>

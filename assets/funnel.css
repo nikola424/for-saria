@@ -1,0 +1,70 @@
+/* Cat Shanu · live class funnel (register, thank-you, replay)
+   SF Pro Display Bold headings, Inter text, pill eyebrows, one highlighted phrase,
+   glowing pill CTAs, soft rounded cards. Cat's colours: cream, wine, gold. */
+@font-face{font-family:"SFD";src:url(fonts/sfpro-bold.woff2) format("woff2");font-weight:700 900;font-display:swap}
+@font-face{font-family:"Inter";src:url(fonts/inter-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
+:root{
+  --bg:#f9f7ee;--bg-2:#f8f5ea;--blush:#eef0dc;--card:#ffffff;
+  --ink:#0e0d0d;--ink-2:#4a4240;--muted:#7a6e69;
+  --line:rgba(14,13,13,.09);
+  --red:#4f5d23;--red-2:#e0303c;--red-soft:rgba(79,93,35,.10);--red-glow:rgba(79,93,35,.28);
+  --wine:#5c0a12;
+  --display:"SFD","SF Pro Display",-apple-system,Inter,sans-serif;
+  --sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --r:24px;--maxw:1080px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+p,li,h1,h2,h3,blockquote{overflow-wrap:anywhere}
+h1,h2,h3{font-family:var(--display);font-weight:700;letter-spacing:-.025em;margin:0;line-height:1.1}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.narrow{max-width:760px}
+
+/* header: logo · countdown · button */
+.jd-head{position:sticky;top:0;z-index:20;background:rgba(251,247,243,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.jd-head .row{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+.logo{font:700 22px/1 var(--display);letter-spacing:-.02em}
+.logo i{font-style:normal;color:var(--red)}
+.mini-cd{display:flex;align-items:flex-start;gap:8px;font-family:var(--display)}
+.mini-cd div{text-align:center;min-width:34px}
+.mini-cd b{display:block;font-size:20px;line-height:1}
+.mini-cd span{display:block;font:600 9px/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+.mini-cd i{font-style:normal;font-size:18px;color:var(--muted);line-height:1}
+
+/* pill eyebrow */
+.pill-eb{display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 6px;border-radius:999px;background:#fff;border:1px solid rgba(79,93,35,.25);box-shadow:0 0 0 4px rgba(79,93,35,.05);font:700 12px/1 var(--sans);letter-spacing:.06em;text-transform:uppercase}
+.pill-eb img{width:22px;height:22px;border-radius:50%;object-fit:cover}
+.pill-eb .live{width:8px;height:8px;border-radius:50%;background:var(--red);margin-left:6px;box-shadow:0 0 0 0 var(--red-glow);animation:pulse 1.8s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(79,93,35,.45)}70%{box-shadow:0 0 0 9px rgba(79,93,35,0)}100%{box-shadow:0 0 0 0 rgba(79,93,35,0)}}
+.hl{background:var(--red-soft);color:var(--red);border-radius:10px;padding:0 .18em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.it{font-style:italic;color:var(--red)}
+
+/* glowing pill CTA */
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:14px;padding:6px;border-radius:999px;background:rgba(79,93,35,.10);border:1px solid rgba(79,93,35,.22);cursor:pointer;font:inherit;color:inherit}
+.cta span{display:inline-flex;align-items:center;gap:16px;padding:17px 22px 17px 34px;border-radius:999px;background:linear-gradient(180deg,var(--red-2),var(--red));color:#fff;font:800 15px/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;box-shadow:0 10px 28px var(--red-glow),inset 0 1px 0 rgba(255,255,255,.25);transition:transform .2s ease,box-shadow .2s ease}
+.cta span::after{content:"";width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.18) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 6l6 6-6 6'/%3E%3C/svg%3E") center/14px no-repeat}
+.cta:hover span{transform:translateY(-1px);box-shadow:0 14px 34px rgba(79,93,35,.36),inset 0 1px 0 rgba(255,255,255,.25)}
+.cta--sm span{padding:12px 14px 12px 20px;font-size:12px;gap:10px}
+.cta--sm span::after{width:20px;height:20px;background-size:11px}
+.cta--sm{padding:4px}
+
+section{padding:76px 0}
+.sec-h{text-align:center;margin:0 auto 40px;max-width:720px}
+.sec-h h2{font-size:clamp(30px,4.4vw,46px)}
+.sec-h p{color:var(--ink-2);margin:14px auto 0;max-width:56ch}
+.eyebrow{display:block;font:800 12px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:0 30px 60px -40px rgba(45,52,20,.25)}
+.center{text-align:center}
+.note{font-size:13.5px;color:var(--muted);margin:14px auto 0;max-width:52ch;text-align:center}
+
+/* mobile hardening */
+@media(max-width:700px){
+  section{padding:56px 0}
+  .jd-head .row{height:60px}
+  .mini-cd{display:none}
+  .logo{font-size:20px}
+}
+@media (prefers-reduced-motion:reduce){.pill-eb .live{animation:none}.cta span{transition:none}}
